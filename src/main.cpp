@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 
+#include <player.hpp>
 
 void init()
 {
@@ -29,6 +30,8 @@ void player_input(sf::Keyboard::Key key)
 
 int main()
 {
+
+
 	const sf::Vector2u window_size = sf::Vector2u{ 800, 600 };
 	sf::RenderWindow window(sf::VideoMode(window_size.x, window_size.y), "Move To Target");
 
@@ -47,6 +50,7 @@ int main()
 			case sf::Event::KeyPressed:
 				player_input(event.key.code);
 				break;
+
 			default:
 				break;
 			}

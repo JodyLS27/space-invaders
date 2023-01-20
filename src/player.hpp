@@ -21,7 +21,7 @@ namespace player
 	public:
 		void set_position(sf::Vector2f position);
 		void set_direction(sf::Keyboard::Key);
-		void set_shape(sf::Vector2i shape_size, sf::Color color = sf::Color::Red);
+		void set_shape(sf::Vector2f shape_size, sf::Color color = sf::Color::Red);
 		
 
 		sf::Vector2f get_position();

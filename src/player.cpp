@@ -1,84 +1,87 @@
 #include <player.hpp>
 
-namespace player
+
+player::Player::Player(int score, int speed)
+	: m_score(score), m_speed(speed), m_width(25), m_height(25)
+{}
+// PRIVATE FUNCTIONS
+
+
+// PUBLIC FUNCTIONS
+void player::Player::set_position(sf::Vector2f position)
 {
-	Player::Player()
-		: m_score(0), m_speed(10)
-	{}
-	// PRIVATE FUNCTIONS
-	void Player::update_position(sf::Vector2i direction, float delta_time)
+	m_position = position;
+}
+
+void player::Player::set_direction(sf::Keyboard::Key key)
+{
+	m_direction = { 0.0f, 0.0f };
+
+	switch (key)
 	{
-		m_position += static_cast<sf::Vector2f>(direction) * static_cast<float>(m_speed); // *delta_time;
-		m_shape.setPosition(m_position);
+	case sf::Keyboard::W:
+	case sf::Keyboard::Up:
+		m_direction = { 0.0f, -1.0f };
+		break;
+
+	case sf::Keyboard::A:
+	case sf::Keyboard::Left:
+		m_direction = { -1.0f, 0.0f };
+		break;
+
+	case sf::Keyboard::S:
+	case sf::Keyboard::Down:
+		m_direction = { 0.0f, 1.0f };
+		break;
+
+	case sf::Keyboard::D:
+	case sf::Keyboard::Right:
+		m_direction = { 1.0f, 0.0f };
+		break;
+
+	default:
+		break;
+
 	}
+}
 
-	// PUBLIC FUNCTIONS
-	void Player::set_position(sf::Vector2f position)
-	{
-		m_position = position;
-	}
+void player::Player::set_shape(sf::Vector2f position, sf::Color color)
+{
+	m_shape.setSize({ static_cast<float>(m_width), static_cast<float>(m_height) });
+	m_shape.setOrigin({ m_width * 0.5f, m_height * 0.5f });
+	m_shape.setPosition(position);
+	m_shape.setFillColor(color);
 
-	void Player::set_direction(sf::Keyboard::Key key, float delta_time)
-	{
-		m_direction = { 0, 0 };
+	m_position = position;
+}
 
-		switch (key)
-		{
-		case sf::Keyboard::W:
-		case sf::Keyboard::Up:
-			m_direction = { 0, -1 };
-			break;
+void player::Player::set_score(int score)
+{
+	m_score = score;
+}
 
-		case sf::Keyboard::A:
-		case sf::Keyboard::Left:
-			m_direction = { -1, 0 };
-			break;
+sf::Vector2f player::Player::get_position()
+{
+	return m_position;
+}
 
-		case sf::Keyboard::S:
-		case sf::Keyboard::Down:
-			m_direction = { 0, 1 };
-			break;
+sf::RectangleShape& player::Player::get_shape()
+{
+	return m_shape;
+}
 
-		case sf::Keyboard::D:
-		case sf::Keyboard::Right:
-			m_direction = { 1, 0 };
-			break;
+sf::RectangleShape const& player::Player::get_shape() const
+{
+	return m_shape;
+}
 
-		default:
-			break;
+int player::Player::get_score()
+{
+	return m_score;
+}
 
-		}
-
-		update_position(m_direction, delta_time);
-	}
-
-	void Player::set_shape(sf::Vector2u window_size, sf::Vector2f shape_size, sf::Color color)
-	{
-		m_shape.setSize(shape_size);
-		m_shape.setOrigin({ shape_size.x * 0.5f, shape_size.y * 0.5f });
-		m_shape.setPosition({ window_size.x * 0.5f, window_size.y * 0.5f });
-		m_shape.setFillColor(color);
-
-		m_position = m_shape.getPosition();
-	}
-
-	void Player::set_score(int score)
-	{
-		m_score = score;
-	}
-
-	sf::Vector2f Player::get_position()
-	{
-		return m_position;
-	}
-
-	sf::RectangleShape Player::get_shape()
-	{
-		return m_shape;
-	}
-
-	int Player::get_score()
-	{
-		return m_score;
-	}
+void player::Player::update_position()
+{
+	m_position += (m_direction) * static_cast<float>(m_speed);
+	m_shape.setPosition(m_position);
 }

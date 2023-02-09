@@ -13,10 +13,17 @@ void player::Player::set_position(sf::Vector2f position)
 	m_position = position;
 }
 
-void player::Player::set_direction(sf::Keyboard::Key key)
+void player::Player::set_direction()
 {
 	m_direction = { 0.0f, 0.0f };
+	if (m_move_up) { m_direction = { 0.0f, -1.0f }; }
+	if (m_move_left) { m_direction = { -1.0f, 0.0f }; }
+	if (m_move_down) { m_direction = { 0.0f, 1.0f }; }
+	if (m_move_right) { m_direction = { 1.0f , 0.0f }; }
+}
 
+void player::Player::set_direction(sf::Keyboard::Key key)
+{
 	switch (key)
 	{
 	case sf::Keyboard::W:
@@ -45,22 +52,20 @@ void player::Player::set_direction(sf::Keyboard::Key key)
 	}
 }
 
-void player::Player::set_shape(sf::Vector2f position, sf::Color color)
+void player::Player::set_shape(sf::Color color)
 {
 	m_shape.setSize({ static_cast<float>(m_width), static_cast<float>(m_height) });
 	m_shape.setOrigin({ m_width * 0.5f, m_height * 0.5f });
-	m_shape.setPosition(position);
+	m_shape.setPosition(m_position);
 	m_shape.setFillColor(color);
-
-	m_position = position;
 }
 
-void player::Player::set_score(int score)
+void player::Player::set_score()
 {
-	m_score = score;
+	m_score++;
 }
 
-sf::Vector2f player::Player::get_position()
+sf::Vector2f player::Player::get_position() const
 {
 	return m_position;
 }
@@ -75,13 +80,86 @@ sf::RectangleShape const& player::Player::get_shape() const
 	return m_shape;
 }
 
-int player::Player::get_score()
+int player::Player::get_score() const
 {
 	return m_score;
 }
 
-void player::Player::update_position()
+int player::Player::get_width() const
 {
-	m_position += (m_direction) * static_cast<float>(m_speed);
+	return m_width;
+}
+
+int player::Player::get_height() const
+{
+	return m_height;
+}
+
+void player::Player::event_handler()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		m_direction = { 0.0f, -1.0f };
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		m_direction = { -1.0f, 0.0f };
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		m_direction = { 0.0f, 1.0f };
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		m_direction = { 1.0f, 0.0f };
+	}
+}
+
+void player::Player::event_handler(sf::Event event)
+{
+	if (event.type == sf::Event::KeyPressed)
+	{
+		if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up) { m_move_up = true; }
+		if (event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::Left) { m_move_left = true; }
+		if (event.key.code == sf::Keyboard::S || event.key.code == sf::Keyboard::Down) { m_move_down = true; }
+		if (event.key.code == sf::Keyboard::D || event.key.code == sf::Keyboard::Right) { m_move_right = true; }
+	}
+
+	if (event.type == sf::Event::KeyReleased)
+	{
+		if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up) { m_move_up = false; }
+		if (event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::Left) { m_move_left = false; }
+		if (event.key.code == sf::Keyboard::S || event.key.code == sf::Keyboard::Down) { m_move_down = false; }
+		if (event.key.code == sf::Keyboard::D || event.key.code == sf::Keyboard::Right) { m_move_right = false; }
+	}
+}
+
+void player::Player::update_position(sf::Vector2f position)
+{
+	m_position = position;
+	m_shape.setPosition(position);
+}
+
+void player::Player::update_position(float delta_time)
+{
+	m_position += (m_direction * delta_time) * m_speed;
 	m_shape.setPosition(m_position);
+}
+
+// Set the position the player is going to be and then check if it hits the 
+// window and adjust the positioning.
+sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
+	float delta_time)
+{
+	sf::Vector2f ret_position = m_position + (m_direction * delta_time) * m_speed;
+
+	if (ret_position.x < (m_width * 0.5f)) { ret_position.x = (m_width * 0.5f); }
+	if (ret_position.x > (window_size.x - (m_width * 0.5f))) { ret_position.x = (window_size.x - (m_width * 0.5f)); }
+	if (ret_position.y < (m_height * 0.5f)) { ret_position.y = (m_height * 0.5f); }
+	if (ret_position.y > (window_size.y - (m_height * 0.5f))) { ret_position.y = (window_size.y - (m_height * 0.5f)); }
+
+	return ret_position;
 }

@@ -25,6 +25,15 @@ void logic(player::Player& player, target::Target& target, const sf::Event& even
 	player.set_direction();
 
 	player.update_position(player.window_collision(window_size, delta_time));
+
+	if (target.collision_hit(player.get_position(), player.get_width(), player.get_height()))
+	{
+		target.set_colour(sf::Color::Red);
+	}
+	else
+	{
+		target.set_colour(sf::Color::Red);
+	}
 }
 void draw_text(sf::Font& font, sf::Text& text, int score)
 {

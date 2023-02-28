@@ -22,36 +22,6 @@ void player::Player::set_direction()
 	if (m_move_right) { m_direction = { 1.0f , 0.0f }; }
 }
 
-void player::Player::set_direction(sf::Keyboard::Key key)
-{
-	switch (key)
-	{
-	case sf::Keyboard::W:
-	case sf::Keyboard::Up:
-		m_direction = { 0.0f, -1.0f };
-		break;
-
-	case sf::Keyboard::A:
-	case sf::Keyboard::Left:
-		m_direction = { -1.0f, 0.0f };
-		break;
-
-	case sf::Keyboard::S:
-	case sf::Keyboard::Down:
-		m_direction = { 0.0f, 1.0f };
-		break;
-
-	case sf::Keyboard::D:
-	case sf::Keyboard::Right:
-		m_direction = { 1.0f, 0.0f };
-		break;
-
-	default:
-		break;
-
-	}
-}
-
 void player::Player::set_shape(sf::Color color)
 {
 	m_shape.setSize({ static_cast<float>(m_width), static_cast<float>(m_height) });
@@ -95,31 +65,13 @@ int player::Player::get_height() const
 	return m_height;
 }
 
-void player::Player::event_handler()
-{
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		m_direction = { 0.0f, -1.0f };
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		m_direction = { -1.0f, 0.0f };
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		m_direction = { 0.0f, 1.0f };
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		m_direction = { 1.0f, 0.0f };
-	}
-}
-
 void player::Player::event_handler(sf::Event event)
 {
+	/// <summary>
+	/// This function handles the player keyboard inputs and sets which way the player will move next.
+	/// </summary>
+	/// <param event></param>
+
 	if (event.type == sf::Event::KeyPressed)
 	{
 		if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up) { m_move_up = true; }

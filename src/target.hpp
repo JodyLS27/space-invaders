@@ -22,8 +22,7 @@ namespace target
 		void set_position(sf::Vector2f position);
 		void set_shape(sf::Color colour = sf::Color::White);
 
-		// TODO: Remove once test is complete.
-		void set_colour(sf::Color colour);
+		void update_shape_position();
 
 		sf::Vector2f get_position();
 		sf::CircleShape& get_shape();

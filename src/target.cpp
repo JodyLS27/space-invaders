@@ -30,9 +30,9 @@ void target::Target::set_position(sf::Vector2f position)
 	m_position = position;
 }
 
-void target::Target::set_colour(sf::Color colour)
+void target::Target::update_shape_position()
 {
-	m_shape.setFillColor(colour);
+	m_shape.setPosition(m_position);
 }
 
 sf::CircleShape& target::Target::get_shape()
@@ -60,21 +60,28 @@ sf::Vector2f target::Target::generate_random_position(const sf::Vector2u window_
 
 bool target::Target::collision_hit(const sf::Vector2f player_position, const int player_width, const int player_height)
 {
-	float player_min_x = player_position.x - (player_height * 0.5);
-	float player_max_y = player_position.y + (player_height * 0.5);
+	/// <summary>
+	/// This function implements the AABB collision detection method.
+	/// </summary>
+	/// <param name="player_position"></param>
+	/// <param name="player_width"></param>
+	/// <param name="player_height"></param>
+	/// <returns>if the target object has been hit or not.</returns>
 
-	float target_max_x = m_position.x - (m_radius * 0.5);
-	float target_min_y = m_position.y + (m_radius * 0.5);
+	float player_min_x = player_position.x - (player_width * 0.5f);
+	float player_max_x = player_position.x + (player_width * 0.5f);
+	float player_min_y = player_position.y - (player_height * 0.5f);
+	float player_max_y = player_position.y + (player_height * 0.5f);
 
-
+	float target_min_x = m_position.x - (m_radius * 0.5f);
+	float target_max_x = m_position.x + (m_radius * 1.5f);
+	float target_min_y = m_position.y - (m_radius * 0.5f);
+	float target_max_y = m_position.y + (m_radius * 1.5f);
 
 	if (player_min_x > target_max_x) { return false; }
+	if (player_max_x < target_min_x) { return false; }
+	if (player_min_y > target_max_y) { return false; }
 	if (player_max_y < target_min_y) { return false; }
 
 	return true;
-
-
-	// The width and height is halved as the position is set to the center of the player.
-	//if ((player_position.x + (player_width * 0.5f)) == (m_position.x + m_radius * 0.5)) { return true; }
-	//if ((player_position.y + (player_height * 0.5f)) == (m_position.y + m_radius * 0.5)) { return true; }
 }

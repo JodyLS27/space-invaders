@@ -26,6 +26,12 @@ namespace player
 		void set_position(sf::Vector2f positio);
 		void set_direction();
 		void set_shape(sf::Color color = sf::Color::Red);
+		void set_move_up(bool state);
+		void set_move_left(bool state);
+		void set_move_right(bool state);
+		void set_move_down(bool state);
+
+
 		void increment_score();
 
 		sf::Vector2f get_position() const;

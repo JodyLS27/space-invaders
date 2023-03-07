@@ -18,8 +18,8 @@ void init(sf::Vector2u window_size, player::Player& player, target::Target& targ
 	target.set_shape();
 }
 
-void event_handling(sf::RenderWindow& window, sf::Event& event)
-{	
+void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& player)
+{
 	while (window.pollEvent(event))
 	{
 		switch (event.type)
@@ -34,7 +34,23 @@ void event_handling(sf::RenderWindow& window, sf::Event& event)
 			{
 			case sf::Keyboard::Up:
 			case sf::Keyboard::W:
-				player.set_
+				player.set_move_up(true);
+				break;
+
+			case sf::Keyboard::Left:
+			case sf::Keyboard::A:
+				player.set_move_left(true);
+				break;
+
+			case sf::Keyboard::Right:
+			case sf::Keyboard::D:
+				player.set_move_right(true);
+				break;
+
+			case sf::Keyboard::Down:
+			case sf::Keyboard::S:
+				player.set_move_down(true);
+				break;
 
 			default:
 				break;
@@ -44,6 +60,26 @@ void event_handling(sf::RenderWindow& window, sf::Event& event)
 		case sf::Event::KeyReleased:
 			switch (event.key.code)
 			{
+			case sf::Keyboard::Up:
+			case sf::Keyboard::W:
+				player.set_move_up(false);
+				break;
+
+			case sf::Keyboard::Left:
+			case sf::Keyboard::A:
+				player.set_move_left(false);
+				break;
+
+			case sf::Keyboard::Right:
+			case sf::Keyboard::D:
+				player.set_move_right(false);
+				break;
+
+			case sf::Keyboard::Down:
+			case sf::Keyboard::S:
+				player.set_move_down(false);
+				break;
+
 			default:
 				break;
 			}
@@ -96,6 +132,7 @@ int main()
 	sf::Font font;
 	sf::Text text;
 
+	// load this into a local foulder.
 	if (!font.loadFromFile("C:/Users/jodys/OneDrive/Documents/Fonts/Vogue.ttf"))
 	{
 		std::cout << "Error: Cannot load file." << std::endl;
@@ -119,7 +156,7 @@ int main()
 
 		float delta_time = std::chrono::duration_cast<flt>(chrono_dt).count();
 
-		event_handling(window, event);
+		event_handling(window, event, player);
 
 		logic(player, target, window_size, delta_time);
 

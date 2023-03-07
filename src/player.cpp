@@ -17,9 +17,9 @@ void player::Player::set_direction()
 {
 	m_direction = { 0.0f, 0.0f };
 	if (m_move_up) { m_direction = { 0.0f, -1.0f }; }
-	if (m_move_left) { m_direction = { -1.0f, 0.0f }; }
-	if (m_move_down) { m_direction = { 0.0f, 1.0f }; }
-	if (m_move_right) { m_direction = { 1.0f , 0.0f }; }
+	else if (m_move_left) { m_direction = { -1.0f, 0.0f }; }
+	else if (m_move_down) { m_direction = { 0.0f, 1.0f }; }
+	else if (m_move_right) { m_direction = { 1.0f , 0.0f }; }
 }
 
 void player::Player::set_shape(sf::Color color)
@@ -28,6 +28,26 @@ void player::Player::set_shape(sf::Color color)
 	m_shape.setOrigin({ m_width * 0.5f, m_height * 0.5f });
 	m_shape.setPosition(m_position);
 	m_shape.setFillColor(color);
+}
+
+void player::Player::set_move_up(bool state)
+{
+	m_move_up = state;
+}
+
+void player::Player::set_move_left(bool state)
+{
+	m_move_left = state;
+}
+
+void player::Player::set_move_right(bool state)
+{
+	m_move_right = state;
+}
+
+void player::Player::set_move_down(bool state)
+{
+	m_move_down = state;
 }
 
 void player::Player::increment_score()

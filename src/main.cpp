@@ -56,6 +56,8 @@ void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& 
 				break;
 			}
 
+			break;
+
 			// Character Stop Movement
 		case sf::Event::KeyReleased:
 			switch (event.key.code)
@@ -83,6 +85,8 @@ void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& 
 			default:
 				break;
 			}
+
+			break;
 		}
 	}
 }

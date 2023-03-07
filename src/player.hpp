@@ -21,12 +21,12 @@ namespace player
 		bool m_move_right{ false };
 
 	public:
-		Player(int score, int speed);
+		Player(int score, int speed, int width = 25, int height = 25);
 
 		void set_position(sf::Vector2f positio);
 		void set_direction();
 		void set_shape(sf::Color color = sf::Color::Red);
-		void set_score();
+		void increment_score();
 
 		sf::Vector2f get_position() const;
 		sf::RectangleShape& get_shape();

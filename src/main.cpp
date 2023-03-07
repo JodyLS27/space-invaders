@@ -18,10 +18,42 @@ void init(sf::Vector2u window_size, player::Player& player, target::Target& targ
 	target.set_shape();
 }
 
-void logic(player::Player& player, target::Target& target, const sf::Event& event,
+void event_handling(sf::RenderWindow& window, sf::Event& event)
+{	
+	while (window.pollEvent(event))
+	{
+		switch (event.type)
+		{
+		case sf::Event::Closed:
+			window.close();
+			break;
+
+			// Character Movement
+		case sf::Event::KeyPressed:
+			switch (event.key.code)
+			{
+			case sf::Keyboard::Up:
+			case sf::Keyboard::W:
+				player.set_
+
+			default:
+				break;
+			}
+
+			// Character Stop Movement
+		case sf::Event::KeyReleased:
+			switch (event.key.code)
+			{
+			default:
+				break;
+			}
+		}
+	}
+}
+
+void logic(player::Player& player, target::Target& target,
 	const sf::Vector2u window_size, float delta_time)
 {
-	player.event_handler(event);
 	player.set_direction();
 
 	player.update_position(player.window_collision(window_size, delta_time));
@@ -31,7 +63,7 @@ void logic(player::Player& player, target::Target& target, const sf::Event& even
 		target.set_position(target.generate_random_position(window_size));
 		target.update_shape_position();
 
-		player.set_score();
+		player.increment_score();
 	}
 }
 void draw_text(sf::Font& font, sf::Text& text, int score)
@@ -87,17 +119,9 @@ int main()
 
 		float delta_time = std::chrono::duration_cast<flt>(chrono_dt).count();
 
-		while (window.pollEvent(event))
-		{
-			switch (event.type)
-			{
-			case sf::Event::Closed:
-				window.close();
-				break;
-			}
-		}
+		event_handling(window, event);
 
-		logic(player, target, event, window_size, delta_time);
+		logic(player, target, window_size, delta_time);
 
 		draw_text(font, text, player.get_score());
 		render(window, player.get_shape(), target.get_shape(), text);

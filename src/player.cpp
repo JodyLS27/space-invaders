@@ -1,8 +1,8 @@
 #include <player.hpp>
 
 
-player::Player::Player(int score, int speed)
-	: m_score(score), m_speed(speed), m_width(25), m_height(25)
+player::Player::Player(int score, int speed, int width, int height)
+	: m_score(score), m_speed(speed), m_width(width), m_height(height)
 {}
 // PRIVATE FUNCTIONS
 
@@ -30,9 +30,9 @@ void player::Player::set_shape(sf::Color color)
 	m_shape.setFillColor(color);
 }
 
-void player::Player::set_score()
+void player::Player::increment_score()
 {
-	m_score++;
+	++m_score;
 }
 
 sf::Vector2f player::Player::get_position() const

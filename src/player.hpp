@@ -11,19 +11,21 @@ namespace player
 		sf::RectangleShape m_shape{};
 
 		float m_speed{};
-		int m_score{};
-		int m_width{};
-		int m_height{};
+		uint16_t m_score{};
+		uint16_t m_width{};
+		uint16_t m_height{};
 
 		bool m_move_up{ false };
 		bool m_move_down{ false };
 		bool m_move_left{ false };
 		bool m_move_right{ false };
 
-	public:
-		Player(int score, int speed, int width = 25, int height = 25);
+		//sf::Vector2f get_center() const;
 
-		void set_position(sf::Vector2f positio);
+	public:
+		Player(uint16_t score, float speed, uint16_t width = 25, uint16_t height = 25);
+
+		void set_position(sf::Vector2f position);
 		void set_direction();
 		void set_shape(sf::Color color = sf::Color::Red);
 		void set_move_up(bool state);
@@ -35,11 +37,12 @@ namespace player
 		void increment_score();
 
 		sf::Vector2f get_position() const;
-		sf::RectangleShape& get_shape();
 		sf::RectangleShape const& get_shape() const;
-		int get_score() const;
-		int get_width() const;
-		int get_height() const;
+		sf::RectangleShape& get_shape();
+		uint16_t get_score() const;
+		uint16_t get_width() const;
+		uint16_t get_height() const;
+
 
 		void event_handler(sf::Event event);
 		void update_position(float delta_time);

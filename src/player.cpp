@@ -1,10 +1,14 @@
 #include <player.hpp>
 
 
-player::Player::Player(int score, int speed, int width, int height)
+player::Player::Player(uint16_t score, float speed, uint16_t width, uint16_t height)
 	: m_score(score), m_speed(speed), m_width(width), m_height(height)
 {}
 // PRIVATE FUNCTIONS
+
+sf::Vector2f player::Player::get_center() const {
+	return m_shape.getPosition();
+}
 
 
 // PUBLIC FUNCTIONS
@@ -70,17 +74,17 @@ sf::RectangleShape const& player::Player::get_shape() const
 	return m_shape;
 }
 
-int player::Player::get_score() const
+uint16_t player::Player::get_score() const
 {
 	return m_score;
 }
 
-int player::Player::get_width() const
+uint16_t player::Player::get_width() const
 {
 	return m_width;
 }
 
-int player::Player::get_height() const
+uint16_t player::Player::get_height() const
 {
 	return m_height;
 }

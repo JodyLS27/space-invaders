@@ -136,8 +136,7 @@ int main()
 	sf::Font font;
 	sf::Text text;
 
-	// load this into a local foulder.
-	if (!font.loadFromFile("C:/Users/jodys/OneDrive/Documents/Fonts/Vogue.ttf"))
+	if (!font.loadFromFile("../../../fonts/batmfa__.ttf"))
 	{
 		std::cout << "Error: Cannot load file." << std::endl;
 	}

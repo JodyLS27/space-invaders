@@ -6,15 +6,11 @@ player::Player::Player(uint16_t score, float speed, uint16_t width, uint16_t hei
 {}
 // PRIVATE FUNCTIONS
 
-sf::Vector2f player::Player::get_center() const {
-	return m_shape.getPosition();
-}
-
 
 // PUBLIC FUNCTIONS
-void player::Player::set_position(sf::Vector2f position)
+void player::Player::set_position(const sf::Vector2f& position)
 {
-	m_position = position;
+	m_shape.setPosition(position);
 }
 
 void player::Player::set_direction()
@@ -30,7 +26,6 @@ void player::Player::set_shape(sf::Color color)
 {
 	m_shape.setSize({ static_cast<float>(m_width), static_cast<float>(m_height) });
 	m_shape.setOrigin({ m_width * 0.5f, m_height * 0.5f });
-	m_shape.setPosition(m_position);
 	m_shape.setFillColor(color);
 }
 
@@ -59,9 +54,9 @@ void player::Player::increment_score()
 	++m_score;
 }
 
-sf::Vector2f player::Player::get_position() const
+sf::Vector2f const& player::Player::get_position() const
 {
-	return m_position;
+	return m_shape.getPosition();
 }
 
 sf::RectangleShape& player::Player::get_shape()
@@ -115,22 +110,21 @@ void player::Player::event_handler(sf::Event event)
 
 void player::Player::update_position(sf::Vector2f position)
 {
-	m_position = position;
 	m_shape.setPosition(position);
 }
 
-void player::Player::update_position(float delta_time)
-{
-	m_position += (m_direction * delta_time) * m_speed;
-	m_shape.setPosition(m_position);
-}
+//void player::Player::update_position(float delta_time)
+//{
+//	m_position += (m_direction * delta_time) * m_speed;
+//	m_shape.setPosition(m_position);
+//}
 
 // Set the position the player is going to be and then check if it hits the 
 // window and adjust the positioning.
 sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
 	float delta_time)
 {
-	sf::Vector2f ret_position = m_position + (m_direction * delta_time) * m_speed;
+	sf::Vector2f ret_position = get_position() + (m_direction * delta_time) * m_speed;
 
 	if (ret_position.x < (m_width * 0.5f)) { ret_position.x = (m_width * 0.5f); }
 	if (ret_position.x > (window_size.x - (m_width * 0.5f))) { ret_position.x = (window_size.x - (m_width * 0.5f)); }

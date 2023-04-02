@@ -4,10 +4,39 @@
 player::Player::Player(uint16_t score, float speed, uint16_t width, uint16_t height)
 	: m_score(score), m_speed(speed), m_width(width), m_height(height)
 {}
-// PRIVATE FUNCTIONS
-
 
 // PUBLIC FUNCTIONS
+
+uint16_t player::Player::get_score() const
+{
+	return m_score;
+}
+
+uint16_t player::Player::get_width() const
+{
+	return m_width;
+}
+
+uint16_t player::Player::get_height() const
+{
+	return m_height;
+}
+
+sf::Vector2f const& player::Player::get_position() const
+{
+	return m_shape.getPosition();
+}
+
+sf::RectangleShape& player::Player::get_shape()
+{
+	return m_shape;
+}
+
+sf::RectangleShape const& player::Player::get_shape() const
+{
+	return m_shape;
+}
+
 void player::Player::set_position(const sf::Vector2f& position)
 {
 	m_shape.setPosition(position);
@@ -54,73 +83,14 @@ void player::Player::increment_score()
 	++m_score;
 }
 
-sf::Vector2f const& player::Player::get_position() const
-{
-	return m_shape.getPosition();
-}
-
-sf::RectangleShape& player::Player::get_shape()
-{
-	return m_shape;
-}
-
-sf::RectangleShape const& player::Player::get_shape() const
-{
-	return m_shape;
-}
-
-uint16_t player::Player::get_score() const
-{
-	return m_score;
-}
-
-uint16_t player::Player::get_width() const
-{
-	return m_width;
-}
-
-uint16_t player::Player::get_height() const
-{
-	return m_height;
-}
-
-void player::Player::event_handler(sf::Event event)
-{
-	/// <summary>
-	/// This function handles the player keyboard inputs and sets which way the player will move next.
-	/// </summary>
-	/// <param event></param>
-
-	if (event.type == sf::Event::KeyPressed)
-	{
-		if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up) { m_move_up = true; }
-		if (event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::Left) { m_move_left = true; }
-		if (event.key.code == sf::Keyboard::S || event.key.code == sf::Keyboard::Down) { m_move_down = true; }
-		if (event.key.code == sf::Keyboard::D || event.key.code == sf::Keyboard::Right) { m_move_right = true; }
-	}
-
-	if (event.type == sf::Event::KeyReleased)
-	{
-		if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up) { m_move_up = false; }
-		if (event.key.code == sf::Keyboard::A || event.key.code == sf::Keyboard::Left) { m_move_left = false; }
-		if (event.key.code == sf::Keyboard::S || event.key.code == sf::Keyboard::Down) { m_move_down = false; }
-		if (event.key.code == sf::Keyboard::D || event.key.code == sf::Keyboard::Right) { m_move_right = false; }
-	}
-}
-
 void player::Player::update_position(sf::Vector2f position)
 {
 	m_shape.setPosition(position);
 }
 
-//void player::Player::update_position(float delta_time)
-//{
-//	m_position += (m_direction * delta_time) * m_speed;
-//	m_shape.setPosition(m_position);
-//}
-
-// Set the position the player is going to be and then check if it hits the 
+// Set the position the player is going to be and then check if it hit's the 
 // window and adjust the positioning.
+// TODO: Move to Collision Class
 sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
 											  float delta_time)
 {
@@ -133,3 +103,5 @@ sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
 
 	return ret_position;
 }
+
+// PRIVATE FUNCTIONS

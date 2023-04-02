@@ -101,7 +101,6 @@ void logic(player::Player& player, target::Target& target,
 	if (target.collision_hit(player.get_position(), player.get_width(), player.get_height()))
 	{
 		target.set_position(target.generate_random_position(window_size));
-		target.update_shape_position();
 
 		player.increment_score();
 	}

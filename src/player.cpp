@@ -42,13 +42,33 @@ void player::Player::set_position(const sf::Vector2f& position)
 	m_shape.setPosition(position);
 }
 
+/* TODO: Look into can_move() function perhaps.
+* - we need to have checks that nothing is already down. if it is, move on otherwise
+check whats pressed and set it to true.
+
+*/
+
 void player::Player::set_direction()
 {
-	m_direction = { 0.0f, 0.0f };
-	if (m_move_up) { m_direction = { 0.0f, -1.0f }; }
-	else if (m_move_left) { m_direction = { -1.0f, 0.0f }; }
-	else if (m_move_down) { m_direction = { 0.0f, 1.0f }; }
-	else if (m_move_right) { m_direction = { 1.0f , 0.0f }; }
+	if (m_move_up)
+	{
+		m_direction = { 0.0f, -1.0f };
+	}
+
+	if (m_move_left)
+	{
+		m_direction = { -1.0f, 0.0f };
+	}
+
+	if (m_move_down)
+	{
+		m_direction = { 0.0f, 1.0f };
+	}
+
+	if (m_move_right)
+	{
+		m_direction = { 1.0f , 0.0f };
+	}
 }
 
 void player::Player::set_shape(sf::Color color)

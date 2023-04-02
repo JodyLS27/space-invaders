@@ -122,7 +122,7 @@ void player::Player::update_position(sf::Vector2f position)
 // Set the position the player is going to be and then check if it hits the 
 // window and adjust the positioning.
 sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
-	float delta_time)
+											  float delta_time)
 {
 	sf::Vector2f ret_position = get_position() + (m_direction * delta_time) * m_speed;
 

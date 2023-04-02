@@ -92,7 +92,7 @@ void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& 
 }
 
 void logic(player::Player& player, target::Target& target,
-	const sf::Vector2u window_size, float delta_time)
+		   const sf::Vector2u window_size, float delta_time)
 {
 	player.set_direction();
 

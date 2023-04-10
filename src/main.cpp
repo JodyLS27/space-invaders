@@ -5,6 +5,9 @@
 #include <player.hpp>
 #include <target.hpp>
 
+#include "windows.h"
+#include <format>
+
 
 
 void init(sf::Vector2u window_size, player::Player& player, target::Target& target)
@@ -94,7 +97,11 @@ void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& 
 void logic(player::Player& player, target::Target& target,
 		   const sf::Vector2u window_size, float delta_time)
 {
+	std::string msg = std::format("Player can moving {}\n", player.can_move());
+	OutputDebugStringA(msg.c_str());
+
 	player.set_direction();
+
 
 	player.update_position(player.window_collision(window_size, delta_time));
 

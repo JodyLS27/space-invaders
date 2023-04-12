@@ -109,19 +109,34 @@ void player::Player::set_move_down(bool state)
 	m_move_down = state;
 }
 
-bool player::Player::can_change_direction()
+bool player::Player::can_change_direction(std::string direction_to)
 {
-	// TODO Implement directional Check but keep smooth movement.
-	if (m_move_up && m_move_left)
+	if ((m_move_up && direction_to == "left") || (m_move_up && direction_to == "right"))
 	{
-		
+		return true;
 	}
-	/*if (m_move_up || m_move_left || m_move_down || m_move_right)
-	{
-		return false;
-	}*/
 
-	return true;
+	if ((m_move_down && direction_to == "left") || (m_move_down && direction_to == "right"))
+	{
+		return true;
+	}
+
+	if ((m_move_left && direction_to == "up") || (m_move_left && direction_to == "down"))
+	{
+		return true;
+	}
+
+	if ((m_move_right && direction_to == "up") || (m_move_right && direction_to == "down"))
+	{
+		return true;
+	}
+
+	if (!m_move_up && !m_move_down && !m_move_left && !m_move_right)
+	{
+		return true;
+	}
+
+	return false;
 }
 
 void player::Player::increment_score()

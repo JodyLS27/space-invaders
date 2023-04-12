@@ -20,6 +20,14 @@ public:
 
 	sf::Vector2f generate_random_position(const sf::Vector2u window_size);
 
+	/////////////////////////////////////////////////////////////
+	///  This function implements the AABB collision detection method.
+	/// 
+	/// @param player_position: takes in an sf::vector2f value
+	/// @param player_width: 
+	/// @param player_height
+	/// @return Type: Bool - Weather the target object has been hit or not.
+	/////////////////////////////////////////////////////////////
 	bool collision_hit(const sf::Vector2f& player_position, const uint16_t player_width, const uint16_t player_height);
 
 private:

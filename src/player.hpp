@@ -27,7 +27,16 @@ public:
 	void set_move_right(bool state);
 	void set_move_down(bool state);
 
-	bool can_change_direction();
+	/////////////////////////////////////////////////////////
+	/// This function checks weather a players direction can be changed based
+	/// on the current key being pressed an or any alternative keyes being 
+	/// pressed at the same time.
+	/// 
+	/// @param direction_to: String parameter of the direction to change to.
+	/// 
+	/// @return Type: Bool
+	/////////////////////////////////////////////////////////
+	bool can_change_direction(std::string direction_to);
 	void increment_score();
 	void update_position(sf::Vector2f position);
 

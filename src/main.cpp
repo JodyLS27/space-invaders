@@ -37,22 +37,34 @@ void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& 
 			{
 			case sf::Keyboard::Up:
 			case sf::Keyboard::W:
-				player.set_move_up(true);
+				if (player.can_change_direction("up"))
+				{
+					player.set_move_up(true);
+				}
 				break;
 
 			case sf::Keyboard::Left:
 			case sf::Keyboard::A:
-				player.set_move_left(true);
+				if (player.can_change_direction("left"))
+				{
+					player.set_move_left(true);
+				}
 				break;
 
 			case sf::Keyboard::Right:
 			case sf::Keyboard::D:
-				player.set_move_right(true);
+				if (player.can_change_direction("right"))
+				{
+					player.set_move_right(true);
+				}
 				break;
 
 			case sf::Keyboard::Down:
 			case sf::Keyboard::S:
-				player.set_move_down(true);
+				if (player.can_change_direction("down"))
+				{
+					player.set_move_down(true);
+				}
 				break;
 
 			default:

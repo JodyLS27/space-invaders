@@ -1,6 +1,9 @@
 #include <player.hpp>
 #include <String>
 
+#include <windows.h>
+#include <format>
+
 player::Player::Player(uint16_t score, float speed, uint16_t width, uint16_t height)
 	: m_score(score), m_speed(speed), m_width(width), m_height(height)
 {}
@@ -49,6 +52,9 @@ move on otherwise check whats pressed and set it to true.
 
 void player::Player::set_direction()
 {
+	std::string msg = std::format("Up: {} | Down : {} | Left : {} | Right : {} \n\n", m_move_up, m_move_down, m_move_left, m_move_right);
+	OutputDebugStringA(msg.c_str());
+
 	if (m_move_up)
 	{
 		m_direction = { 0.0f, -1.0f };
@@ -103,12 +109,17 @@ void player::Player::set_move_down(bool state)
 	m_move_down = state;
 }
 
-bool player::Player::can_move()
+bool player::Player::can_change_direction()
 {
-	if (m_move_up || m_move_left || m_move_down || m_move_right)
+	// TODO Implement directional Check but keep smooth movement.
+	if (m_move_up && m_move_left)
+	{
+		
+	}
+	/*if (m_move_up || m_move_left || m_move_down || m_move_right)
 	{
 		return false;
-	}
+	}*/
 
 	return true;
 }

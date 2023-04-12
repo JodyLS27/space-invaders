@@ -27,7 +27,7 @@ public:
 	void set_move_right(bool state);
 	void set_move_down(bool state);
 
-	bool can_move();
+	bool can_change_direction();
 	void increment_score();
 	void update_position(sf::Vector2f position);
 

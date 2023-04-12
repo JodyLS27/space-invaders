@@ -5,10 +5,6 @@
 #include <player.hpp>
 #include <target.hpp>
 
-#include "windows.h"
-#include <format>
-
-
 
 void init(sf::Vector2u window_size, player::Player& player, target::Target& target)
 {

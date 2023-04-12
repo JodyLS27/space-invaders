@@ -1,8 +1,4 @@
 #include <player.hpp>
-#include <String>
-
-#include <windows.h>
-#include <format>
 
 player::Player::Player(uint16_t score, float speed, uint16_t width, uint16_t height)
 	: m_score(score), m_speed(speed), m_width(width), m_height(height)
@@ -45,16 +41,8 @@ void player::Player::set_position(const sf::Vector2f& position)
 	m_shape.setPosition(position);
 }
 
-/* TODO: Look into can_move() function perhaps.
-* - we need to have checks that nothing is already down. if it is,
-move on otherwise check whats pressed and set it to true.
-*/
-
 void player::Player::set_direction()
 {
-	std::string msg = std::format("Up: {} | Down : {} | Left : {} | Right : {} \n\n", m_move_up, m_move_down, m_move_left, m_move_right);
-	OutputDebugStringA(msg.c_str());
-
 	// Diagonal Movement
 	if (m_move_up && m_move_left)
 	{
@@ -175,8 +163,6 @@ void player::Player::update_position(sf::Vector2f position)
 	m_shape.setPosition(position);
 }
 
-// Set the position the player is going to be and then check if it hit's the 
-// window and adjust the positioning.
 // TODO: Move to Collision Class
 sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
 											  float delta_time)

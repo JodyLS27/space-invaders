@@ -148,6 +148,8 @@ int main()
 	const sf::Vector2u window_size = sf::Vector2u{ 800, 600 };
 	sf::RenderWindow window(sf::VideoMode(window_size.x, window_size.y), "Move To Target");
 
+	window.setKeyRepeatEnabled(false);
+
 	sf::Font font;
 	sf::Text text;
 

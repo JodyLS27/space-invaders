@@ -55,6 +55,32 @@ void player::Player::set_direction()
 	std::string msg = std::format("Up: {} | Down : {} | Left : {} | Right : {} \n\n", m_move_up, m_move_down, m_move_left, m_move_right);
 	OutputDebugStringA(msg.c_str());
 
+	// Diagonal Movement
+	if (m_move_up && m_move_left)
+	{
+		m_direction = { -0.5f, -1.0f };
+		return;
+	}
+
+	if (m_move_up && m_move_right)
+	{
+		m_direction = { 0.5f, -1.0f };
+		return;
+	}
+
+	if (m_move_down && m_move_left)
+	{
+		m_direction = { -0.5f, 1.0f };
+		return;
+	}
+
+	if (m_move_down && m_move_right)
+	{
+		m_direction = { 0.5f, 1.0f };
+		return;
+	}
+
+	// Up, Down, Left, Right Movement
 	if (m_move_up)
 	{
 		m_direction = { 0.0f, -1.0f };

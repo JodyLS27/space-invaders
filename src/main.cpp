@@ -151,7 +151,7 @@ int main()
 
 	if (!font.loadFromFile("../../../fonts/batmfa__.ttf"))
 	{
-		std::cout << "Error: Cannot load file." << std::endl;
+		std::cout << "Error: Cannot load file. \n";
 	}
 
 	using clock = std::chrono::steady_clock;

@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <chrono>
+
+#include <iostream>
 
 #include <player.hpp>
 #include <target.hpp>

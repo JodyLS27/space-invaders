@@ -1,10 +1,8 @@
 #include <target.hpp>
 
 target::Target::Target(float radius)
-	: m_radius(radius)
+	: m_radius(radius), m_engine{ std::random_device{}() }
 {}
-
-// TODO Fix this issue with the engine being generated each call
 
 
 // PUBLIC FUNCTIONS
@@ -72,7 +70,6 @@ bool target::Target::collision_hit(const sf::Vector2f& player_position, const ui
 // PRIVATE FUNCTIONS
 int ::target::Target::random_val(int lo, int hi)
 {
-	auto engine = std::default_random_engine{ std::random_device{}() };
 	auto distribution = std::uniform_int_distribution<int>{ lo, hi };
-	return distribution(engine);
+	return distribution(m_engine);
 }

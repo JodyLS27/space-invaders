@@ -32,6 +32,9 @@ public:
 
 private:
 	float m_radius{};
+
+	std::default_random_engine m_engine;
+
 	sf::CircleShape m_shape{};
 
 	int random_val(int lo, int hi);

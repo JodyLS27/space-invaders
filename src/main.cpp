@@ -104,7 +104,7 @@ void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& 
 }
 
 void logic(player::Player& player, target::Target& target,
-		   const sf::Vector2u window_size, float delta_time)
+		   const sf::Vector2u window_size, std::chrono::milliseconds delta_time)
 {
 	player.set_direction();
 
@@ -168,10 +168,10 @@ int main()
 		sf::Event event;
 
 		auto current_clock = std::chrono::time_point_cast<mil>(clock::now());
-		auto chrono_dt = current_clock - end_clock;
+		auto delta_time = current_clock - end_clock;
 		end_clock = current_clock;
 
-		float delta_time = std::chrono::duration_cast<flt>(chrono_dt).count();
+		//float delta_time = std::chrono::duration_cast<flt>(chrono_dt).count();
 
 		event_handling(window, event, player);
 

@@ -2,6 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include <String>
 
+// TODO: Remove Chrono from this header file.
+#include <chrono>
+
 namespace player
 {
 class Player

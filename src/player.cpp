@@ -165,9 +165,11 @@ void player::Player::update_position(sf::Vector2f position)
 
 // TODO: Move to Collision Class
 sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
-											  float delta_time)
+											  std::chrono::milliseconds delta_time)
 {
-	sf::Vector2f ret_position = get_position() + (m_direction * delta_time) * m_speed;
+	sf::Vector2f ret_position{};
+	ret_position.x = get_position().x + (m_direction.x * delta_time) * m_speed;
+	ret_position.x = get_position().y + (m_direction.y * delta_time) * m_speed;
 
 	if (ret_position.x < (m_width * 0.5f)) { ret_position.x = (m_width * 0.5f); }
 	if (ret_position.x > (window_size.x - (m_width * 0.5f))) { ret_position.x = (window_size.x - (m_width * 0.5f)); }

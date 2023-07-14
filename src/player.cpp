@@ -174,10 +174,25 @@ sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
 	ret_position = get_position() + (m_direction * dt) * m_speed;
 	//ret_position.x = get_position().y + (m_direction.y * delta_time) * m_speed;
 
-	if (ret_position.x < (m_width * 0.5f)) { ret_position.x = (m_width * 0.5f); }
-	if (ret_position.x > (window_size.x - (m_width * 0.5f))) { ret_position.x = (window_size.x - (m_width * 0.5f)); }
-	if (ret_position.y < (m_height * 0.5f)) { ret_position.y = (m_height * 0.5f); }
-	if (ret_position.y > (window_size.y - (m_height * 0.5f))) { ret_position.y = (window_size.y - (m_height * 0.5f)); }
+	if (ret_position.x < (m_width * 0.5f))
+	{
+		ret_position.x = (m_width * 0.5f);
+	}
+
+	if (ret_position.x > (window_size.x - (m_width * 0.5f)))
+	{
+		ret_position.x = (window_size.x - (m_width * 0.5f));
+	}
+
+	if (ret_position.y < (m_height * 0.5f))
+	{
+		ret_position.y = (m_height * 0.5f);
+	}
+
+	if (ret_position.y > (window_size.y - (m_height * 0.5f)))
+	{
+		ret_position.y = (window_size.y - (m_height * 0.5f));
+	}
 
 	return ret_position;
 }

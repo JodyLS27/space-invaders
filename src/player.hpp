@@ -44,7 +44,7 @@ public:
 	void increment_score();
 	void update_position(sf::Vector2f position);
 
-	sf::Vector2f window_collision(const sf::Vector2u window_size, float delta_time);
+	sf::Vector2f window_collision(const sf::Vector2u window_size, const std::chrono::milliseconds& delta_time);
 
 private:
 	sf::Vector2f m_direction{};

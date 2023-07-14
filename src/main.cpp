@@ -157,7 +157,6 @@ int main()
 
 	using clock = std::chrono::steady_clock;
 	using mil = std::chrono::milliseconds;
-	using flt = std::chrono::duration<float>;
 
 	auto end_clock = std::chrono::time_point_cast<mil>(clock::now());
 
@@ -170,8 +169,6 @@ int main()
 		auto current_clock = std::chrono::time_point_cast<mil>(clock::now());
 		auto delta_time = current_clock - end_clock;
 		end_clock = current_clock;
-
-		//float delta_time = std::chrono::duration_cast<flt>(chrono_dt).count();
 
 		event_handling(window, event, player);
 

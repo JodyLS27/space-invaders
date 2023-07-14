@@ -39,10 +39,25 @@ sf::Vector2f target::Target::generate_random_position(const sf::Vector2u window_
 	sf::Vector2f position{ static_cast<float>(random_val(0, window_size.x)), static_cast<float>(random_val(0, window_size.y)) };
 
 	// Bounds checking.
-	if (position.x < m_radius) { position.x = m_radius; }
-	if (position.x > window_size.x - (m_radius * 1.5f)) { position.x = window_size.x - (m_radius * 1.5f); }
-	if (position.y < m_radius) { position.y = m_radius; }
-	if (position.y > window_size.y - (m_radius * 1.5f)) { position.y = window_size.y - (m_radius * 1.5f); }
+	if (position.x < m_radius)
+	{
+		position.x = m_radius;
+	}
+
+	if (position.x > window_size.x - (m_radius * 1.5f))
+	{
+		position.x = window_size.x - (m_radius * 1.5f);
+	}
+
+	if (position.y < m_radius)
+	{
+		position.y = m_radius;
+	}
+
+	if (position.y > window_size.y - (m_radius * 1.5f))
+	{
+		position.y = window_size.y - (m_radius * 1.5f);
+	}
 
 	return position;
 }

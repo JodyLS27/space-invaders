@@ -31,9 +31,9 @@ public:
 	bool collision_hit(const sf::Vector2f& player_position, const uint16_t player_width, const uint16_t player_height);
 
 private:
-	float m_radius{};
+	float m_radius{10};
 
-	std::default_random_engine m_engine;
+	std::default_random_engine m_engine{std::random_device{}()};
 
 	sf::CircleShape m_shape{};
 

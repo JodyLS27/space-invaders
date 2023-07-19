@@ -1,7 +1,7 @@
 #include <target.hpp>
 
 target::Target::Target(float radius)
-	: m_radius(radius), m_engine{ std::random_device{}() }
+	: m_radius(radius)
 {}
 
 

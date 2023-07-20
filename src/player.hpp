@@ -3,14 +3,13 @@
 #include <String>
 
 // TODO: Remove Chrono from this header file.
+// TODO: Set Default Values on all Member variables
 #include <chrono>
 
 namespace player
 {
 class Player
 {
-	// TODO: Look into creating a player shape edge return ? Perhaps this should be in the 
-	// Collision section ...? or another player class to extend player...?
 
 public:
 	Player(uint16_t score, float speed, uint16_t width = 25, uint16_t height = 25);
@@ -47,17 +46,21 @@ public:
 	sf::Vector2f window_collision(const sf::Vector2u window_size, const std::chrono::milliseconds& delta_time);
 
 private:
-	sf::Vector2f m_direction{};
+
 	sf::RectangleShape m_shape{};
+	sf::Vector2f m_direction{ 0.0f, 0.0f };
 
-	float m_speed{};
-	uint16_t m_score{};
-	uint16_t m_width{};
-	uint16_t m_height{};
+	float m_speed{ 0.0f };
+	uint16_t m_score{ 0 };
+	uint16_t m_width{ 25 };
+	uint16_t m_height{ 25 };
 
+	// TODO: Change to Enum
 	bool m_move_up{ false };
 	bool m_move_down{ false };
 	bool m_move_left{ false };
 	bool m_move_right{ false };
+
+	// TODO: Add Enum for move up and down
 };
 }

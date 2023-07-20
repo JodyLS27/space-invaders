@@ -125,12 +125,12 @@ void player::Player::set_move_down(bool state)
 
 bool player::Player::can_change_direction(std::string direction_to)
 {
-	if ((m_move_up && direction_to == "left") || (m_move_up && direction_to == "right"))
+	if (m_move_up && (direction_to == "left" || m_move_up && direction_to == "right"))
 	{
 		return true;
 	}
 
-	if ((m_move_down && direction_to == "left") || (m_move_down && direction_to == "right"))
+	if (m_move_down && (direction_to == "left" || m_move_down && direction_to == "right"))
 	{
 		return true;
 	}

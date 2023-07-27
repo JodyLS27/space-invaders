@@ -123,6 +123,8 @@ void player::Player::set_move_down(bool state)
 	m_move_down = state;
 }
 
+// TODO: Change direction_to to an int as we will recive that data from an enum.
+// We will clean up this function.
 bool player::Player::can_change_direction(std::string direction_to)
 {
 	if (m_move_up && (direction_to == "left" || m_move_up && direction_to == "right"))
@@ -167,34 +169,13 @@ void player::Player::update_position(sf::Vector2f position)
 sf::Vector2f player::Player::window_collision(const sf::Vector2u window_size,
 											  const std::chrono::milliseconds& delta_time)
 {
-	sf::Vector2f ret_position{};
-
 	float dt = std::chrono::duration_cast<std::chrono::duration<float>>(delta_time).count();
 
-	ret_position = get_position() + (m_direction * dt) * m_speed;
-	//ret_position.x = get_position().y + (m_direction.y * delta_time) * m_speed;
+	sf::Vector2f next_frame_pos{ get_position() + (m_direction * dt) * m_speed };
 
-	if (ret_position.x < (m_width * 0.5f))
-	{
-		ret_position.x = (m_width * 0.5f);
-	}
+	// Clamp to stay within the window.
+	next_frame_pos.x = std::clamp(next_frame_pos.x, m_width * 0.5f, window_size.x - (m_width * 0.5f));
+	next_frame_pos.y = std::clamp(next_frame_pos.y, m_height * 0.5f, window_size.y - (m_height * 0.5f));
 
-	if (ret_position.x > (window_size.x - (m_width * 0.5f)))
-	{
-		ret_position.x = (window_size.x - (m_width * 0.5f));
-	}
-
-	if (ret_position.y < (m_height * 0.5f))
-	{
-		ret_position.y = (m_height * 0.5f);
-	}
-
-	if (ret_position.y > (window_size.y - (m_height * 0.5f)))
-	{
-		ret_position.y = (window_size.y - (m_height * 0.5f));
-	}
-
-	return ret_position;
+	return next_frame_pos;
 }
-
-// PRIVATE FUNCTIONS

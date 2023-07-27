@@ -139,14 +139,17 @@ void render(sf::RenderWindow& window, sf::RectangleShape& player_shape, sf::Circ
 
 int main()
 {
+	// Initiate classes
 	player::Player player{ 0, 100.0f };
 	target::Target target{ 15.0f };
 
+	// Setup window
 	const sf::Vector2u window_size = sf::Vector2u{ 800, 600 };
 	sf::RenderWindow window(sf::VideoMode(window_size.x, window_size.y), "Move To Target");
 
 	window.setKeyRepeatEnabled(false);
 
+	// TODO: Move fonts to Seperate Class.
 	sf::Font font;
 	sf::Text text;
 
@@ -161,6 +164,14 @@ int main()
 	auto end_clock = std::chrono::time_point_cast<mil>(clock::now());
 
 	init(window_size, player, target);
+
+	enum Inputs
+	{
+		up,
+		down,
+		left,
+		right,
+	};
 
 	while (window.isOpen())
 	{

@@ -165,14 +165,6 @@ int main()
 
 	init(window_size, player, target);
 
-	enum Inputs
-	{
-		up,
-		down,
-		left,
-		right,
-	};
-
 	while (window.isOpen())
 	{
 		sf::Event event;

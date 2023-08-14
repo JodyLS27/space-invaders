@@ -6,6 +6,8 @@ player::Player::Player(uint16_t score, float speed, uint16_t width, uint16_t hei
 
 // PUBLIC FUNCTIONS
 
+#pragma region Getters
+
 uint16_t player::Player::get_score() const
 {
 	return m_score;
@@ -36,72 +38,9 @@ sf::RectangleShape const& player::Player::get_shape() const
 	return m_shape;
 }
 
-void player::Player::set_position(const sf::Vector2f& position)
-{
-	m_shape.setPosition(position);
-}
+#pragma endregion
 
-void player::Player::set_direction()
-{
-	// Diagonal Movement
-	if (m_move_up && m_move_left)
-	{
-		m_direction = { -0.5f, -1.0f };
-		return;
-	}
 
-	if (m_move_up && m_move_right)
-	{
-		m_direction = { 0.5f, -1.0f };
-		return;
-	}
-
-	if (m_move_down && m_move_left)
-	{
-		m_direction = { -0.5f, 1.0f };
-		return;
-	}
-
-	if (m_move_down && m_move_right)
-	{
-		m_direction = { 0.5f, 1.0f };
-		return;
-	}
-
-	// Up, Down, Left, Right Movement
-	if (m_move_up)
-	{
-		m_direction = { 0.0f, -1.0f };
-		return;
-	}
-
-	if (m_move_left)
-	{
-		m_direction = { -1.0f, 0.0f };
-		return;
-	}
-
-	if (m_move_down)
-	{
-		m_direction = { 0.0f, 1.0f };
-		return;
-	}
-
-	if (m_move_right)
-	{
-		m_direction = { 1.0f , 0.0f };
-		return;
-	}
-
-	m_direction = { 0.0f , 0.0f };
-}
-
-void player::Player::set_shape(sf::Color color)
-{
-	m_shape.setSize({ static_cast<float>(m_width), static_cast<float>(m_height) });
-	m_shape.setOrigin({ m_width * 0.5f, m_height * 0.5f });
-	m_shape.setFillColor(color);
-}
 
 void player::Player::set_move_up(bool state)
 {
@@ -113,15 +52,63 @@ void player::Player::set_move_left(bool state)
 	m_move_left = state;
 }
 
+void player::Player::set_move_down(bool state)
+{
+	m_move_down = state;
+}
+
 void player::Player::set_move_right(bool state)
 {
 	m_move_right = state;
 }
 
-void player::Player::set_move_down(bool state)
+void player::Player::set_position(const sf::Vector2f& position)
 {
-	m_move_down = state;
+	m_shape.setPosition(position);
 }
+
+void player::Player::set_direction(const char code)
+{
+	// Movement based on states
+	if (m_move_up)
+	{
+		m_direction.y = -1.0f;
+		return;
+	}
+
+	if (m_move_left)
+	{
+		m_direction.x = -1.0f;
+		return;
+	}
+
+	if (m_move_down)
+	{
+		m_direction.y = 1.0f;
+		return;
+	}
+
+	if (m_move_right)
+	{
+		m_direction.x = 1.0f;
+		return;
+	}
+
+
+	// reset if nothing is set.
+	if (!m_move_up && !m_move_left && !m_move_down && !m_move_right)
+	{
+		m_direction = { 0.0f , 0.0f };
+	}
+}
+
+void player::Player::set_shape(sf::Color color)
+{
+	m_shape.setSize({ static_cast<float>(m_width), static_cast<float>(m_height) });
+	m_shape.setOrigin({ m_width * 0.5f, m_height * 0.5f });
+	m_shape.setFillColor(color);
+}
+
 
 // TODO: Change direction_to to an int as we will recive that data from an enum.
 // We will clean up this function.

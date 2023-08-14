@@ -1,5 +1,7 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+
+#include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 #include <String>
 
 // TODO: Remove Chrono from this header file.
@@ -21,14 +23,15 @@ public:
 	sf::RectangleShape const& get_shape() const;
 	sf::RectangleShape& get_shape();
 
-	void set_position(const sf::Vector2f& position);
-	void set_direction();
-	void set_shape(sf::Color color = sf::Color::Red);
-
 	void set_move_up(bool state);
 	void set_move_left(bool state);
 	void set_move_right(bool state);
 	void set_move_down(bool state);
+
+	void set_position(const sf::Vector2f& position);
+	void set_direction(const char code);
+	void set_shape(sf::Color color = sf::Color::Red);
+
 
 	/////////////////////////////////////////////////////////
 	/// This function checks weather a players direction can be changed based
@@ -61,6 +64,13 @@ private:
 	bool m_move_left{ false };
 	bool m_move_right{ false };
 
-	// TODO: Add Enum for move up and down
+
+	enum class PlayerInputs : uint16_t
+	{
+		up,
+		down,
+		right,
+		left
+	};
 };
 }

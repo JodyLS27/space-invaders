@@ -1,11 +1,22 @@
 #include <SFML/Graphics.hpp>
-#include <chrono>
 
-#include <iostream>
+#include <chrono>
+#include <unordered_map>
 
 #include <player.hpp>
 #include <target.hpp>
+#include <logger.hpp>
 
+// Storing key press and its held or not.
+struct Input
+{
+	std::unordered_map<sf::Keyboard::Key, bool> held{};
+};
+
+void set_direction()
+{
+
+}
 
 void init(sf::Vector2u window_size, player::Player& player, target::Target& target)
 {
@@ -18,95 +29,40 @@ void init(sf::Vector2u window_size, player::Player& player, target::Target& targ
 	target.set_shape();
 }
 
-void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& player)
+void event_handling(sf::RenderWindow& window, sf::Event& event, player::Player& player, Input& input)
 {
 	while (window.pollEvent(event))
 	{
+		bool is_pressed{};
+
 		switch (event.type)
 		{
 		case sf::Event::Closed:
 			window.close();
 			break;
 
-			// Character Movement
 		case sf::Event::KeyPressed:
-			switch (event.key.code)
-			{
-			case sf::Keyboard::Up:
-			case sf::Keyboard::W:
-				if (player.can_change_direction("up"))
-				{
-					player.set_move_up(true);
-				}
-				break;
-
-			case sf::Keyboard::Left:
-			case sf::Keyboard::A:
-				if (player.can_change_direction("left"))
-				{
-					player.set_move_left(true);
-				}
-				break;
-
-			case sf::Keyboard::Right:
-			case sf::Keyboard::D:
-				if (player.can_change_direction("right"))
-				{
-					player.set_move_right(true);
-				}
-				break;
-
-			case sf::Keyboard::Down:
-			case sf::Keyboard::S:
-				if (player.can_change_direction("down"))
-				{
-					player.set_move_down(true);
-				}
-				break;
-
-			default:
-				break;
-			}
-
+			is_pressed = true;
 			break;
 
-			// Character Stop Movement
 		case sf::Event::KeyReleased:
-			switch (event.key.code)
-			{
-			case sf::Keyboard::Up:
-			case sf::Keyboard::W:
-				player.set_move_up(false);
-				break;
-
-			case sf::Keyboard::Left:
-			case sf::Keyboard::A:
-				player.set_move_left(false);
-				break;
-
-			case sf::Keyboard::Right:
-			case sf::Keyboard::D:
-				player.set_move_right(false);
-				break;
-
-			case sf::Keyboard::Down:
-			case sf::Keyboard::S:
-				player.set_move_down(false);
-				break;
-
-			default:
-				break;
-			}
-
+			is_pressed = false;
 			break;
+
+		default:
+			return;
+
+			// Pass through key code and its value.
+			input.held[event.key.code] = is_pressed;
 		}
 	}
 }
 
 void logic(player::Player& player, target::Target& target,
-		   const sf::Vector2u window_size, std::chrono::milliseconds delta_time)
+		   const sf::Vector2u window_size,
+		   std::chrono::milliseconds delta_time, Input input)
 {
-	player.set_direction();
+	set_direction();
 
 
 	player.update_position(player.window_collision(window_size, delta_time));
@@ -137,11 +93,15 @@ void render(sf::RenderWindow& window, sf::RectangleShape& player_shape, sf::Circ
 	window.display();
 }
 
+
 int main()
 {
 	// Initiate classes
 	player::Player player{ 0, 100.0f };
 	target::Target target{ 15.0f };
+
+	// Initialize struct
+	Input input{};
 
 	// Setup window
 	const sf::Vector2u window_size = sf::Vector2u{ 800, 600 };
@@ -173,9 +133,10 @@ int main()
 		auto delta_time = current_clock - end_clock;
 		end_clock = current_clock;
 
-		event_handling(window, event, player);
+		// Player input.
+		event_handling(window, event, player, input);
 
-		logic(player, target, window_size, delta_time);
+		logic(player, target, window_size, delta_time, input);
 
 		draw_text(font, text, player.get_score());
 		render(window, player.get_shape(), target.get_shape(), text);
@@ -183,4 +144,3 @@ int main()
 
 	return 0;
 }
-

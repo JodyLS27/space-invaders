@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
-Project(MoveToTarget VERSION 0.03)
+Project(RapidRecharge VERSION 0.04)
 
 set(CMAKE_CXX_STANDARD 20)
 

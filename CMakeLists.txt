@@ -20,4 +20,4 @@ add_executable(${PROJECT_NAME})
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)
 target_include_directories(${PROJECT_NAME} PRIVATE src)
 target_sources(${PROJECT_NAME} PRIVATE "src/main.cpp"
-"src/player.hpp" "src/player.cpp" "src/target.hpp" "src/target.cpp"  "src/logger.hpp" "src/logger.cpp")
+"src/player.hpp" "src/player.cpp" "src/target.hpp" "src/target.cpp"  "src/logger.hpp" "src/logger.cpp" "include/core/gameMachine.cpp")

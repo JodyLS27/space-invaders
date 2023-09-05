@@ -2,8 +2,6 @@
 
 namespace gameManager
 {
-class GameManager
-{
 public:
 	// Attributes
 
@@ -14,5 +12,4 @@ private:
 	void init();
 	void createController();
 	void update();
-};
 }

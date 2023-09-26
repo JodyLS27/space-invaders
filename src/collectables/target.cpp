@@ -1,4 +1,4 @@
-#include <target.hpp>
+#include <../include/collectables/target.hpp>
 
 target::Target::Target(float radius)
 	: m_radius(radius)

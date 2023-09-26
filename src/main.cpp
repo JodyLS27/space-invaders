@@ -1,9 +1,8 @@
-#include <include/core/gameManager.hpp>
+#include <../include/core/gameManager.hpp>
 
 int main()
-{
-	gameManager::GameManager gameManager;
-	gameManager.run();
+{	
+	gameManager::run();
 
 	return 0;
 }

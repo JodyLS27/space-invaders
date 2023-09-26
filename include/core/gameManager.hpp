@@ -2,14 +2,13 @@
 
 namespace gameManager
 {
-public:
-	// Attributes
 
-	// Functions
-	void run();
+// Attributes
 
-private:
-	void init();
-	void createController();
-	void update();
+// Functions
+void run();
+
+void init();
+void createController();
+void update();
 }

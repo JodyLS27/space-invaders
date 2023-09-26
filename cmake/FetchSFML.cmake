@@ -6,7 +6,7 @@ message(STATUS "Fetching SFML....")
 FetchContent_Declare(
     sfml
     GIT_REPOSITORY "https://github.com/SFML/SFML.git"
-    GIT_TAG 2f11710abc5aa478503a7ff3f9e654bd2078ebab
+    GIT_TAG 11b73743c42cf7ecd7c596ba83fdbf1150ffa96c
     SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ext/sfml"
 )
 FetchContent_MakeAvailable(sfml)

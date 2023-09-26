@@ -1,4 +1,4 @@
-#include <player.hpp>
+#include <../include/player/player.hpp>
 
 player::Player::Player(uint16_t score, float speed, uint16_t width, uint16_t height)
 	: m_score(score), m_speed(speed), m_width(width), m_height(height)

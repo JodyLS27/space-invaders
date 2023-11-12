@@ -4,5 +4,5 @@ target_sources(${PROJECT_NAME} PRIVATE
 	"core/gameManager.cpp"
 	"player/player.cpp" 
 	"collectables/target.cpp"  
-	"utils/logger.cpp" 
+	"utils/logger.cpp"
 )

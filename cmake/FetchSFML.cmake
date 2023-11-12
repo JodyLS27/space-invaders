@@ -11,8 +11,9 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(sfml)
 
+
 if(sfml_FOUND)
-    message(STATUS "SFML Downloaded...")
+    message(STATUS "--- SFML Downloaded ---")
 else()
-    message(STATUS "SFML Not found!")
+    message(STATUS "!--- SFML Not found! ---!")
 endif()

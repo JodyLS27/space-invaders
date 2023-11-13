@@ -7,6 +7,7 @@ out/
 
 # Dont push anything that can be built. This keeps the Repo small.
 ext/*
+libs/*
 
 # Draw IO live edit files.
 *.drawio.bkp

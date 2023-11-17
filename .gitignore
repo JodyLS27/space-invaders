@@ -1,2 +1,13 @@
+# Anything to do with builds.
 out/
+
+# Dont Include anything that is IDE Specific.
 .vs/
+.idea/
+
+# Dont push anything that can be built. This keeps the Repo small.
+ext/*
+libs/*
+
+# Draw IO live edit files.
+*.drawio.bkp

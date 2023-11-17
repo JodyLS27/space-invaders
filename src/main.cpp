@@ -1,6 +1,8 @@
-
+#include <core/gameManager.hpp>
 
 int main()
 {
-    return 0;
+	gameManager::run();
+
+	return 0;
 }

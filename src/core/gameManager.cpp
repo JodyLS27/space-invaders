@@ -1,14 +1,9 @@
 #include <core/gameManager.hpp>
 
-void gameManager::run()
-{
-	init();
-	update();
-}
-
 void gameManager::init()
 {
-	// Setup the player controller ptr
+	// TODO: Setup the window manager
+	// Setup the player controller Manager
 	// Initialize Textures and load them, might be the render function.
 	// Call Update function to get the game to udpate every frame.
 }

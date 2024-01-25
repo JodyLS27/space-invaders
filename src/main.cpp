@@ -2,7 +2,7 @@
 
 int main()
 {
-	gameManager::run();
+	gameManager::init();
 
 	return 0;
 }

@@ -1,0 +1,2 @@
+#include <core/windowManger.hpp>
+

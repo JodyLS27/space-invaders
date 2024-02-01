@@ -2,5 +2,12 @@
 
 namespace sceneManager
 {
-	
+	class SceneManager
+	{
+	public:
+
+	private:
+
+
+	};
 }

@@ -1,5 +1,5 @@
 # Target Sources files
 target_sources(${PROJECT_NAME} PRIVATE 
 	"main.cpp"
-	"core/gameManager.cpp"
- "core/windowManager.cpp")
+	"core/game_manager.cpp"
+ "core/scene_manager.cpp")

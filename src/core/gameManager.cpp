@@ -1,4 +1,4 @@
-#include <core/gameManager.hpp>
+#include "gameManager.hpp"
 
 void gameManager::run()
 {

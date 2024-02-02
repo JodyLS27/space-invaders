@@ -18,3 +18,8 @@ void gameManager::update()
 {
 	// Create main game loop structure.
 }
+
+void gameManager::draw(std::vector)
+{
+
+}

@@ -9,8 +9,11 @@ void gameManager::run()
 void gameManager::init()
 {
 	// Setup the player controller ptr
-	// Initialize Textures and load them, might be the render function.
-	// Call Update function to get the game to udpate every frame.
+	// Initialize Textures and load them. (Might leave this to each category to do)
+	//	- Load the Init() on the MenuManager class (Game starts here)
+	//  
+	// 
+	// Call Update function to get the main game loop moving. This is our frame data.
 }
 
 void gameManager::createController()

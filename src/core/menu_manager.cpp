@@ -1,5 +1,14 @@
-#include "menu_manager.hpp"
-#include "menu/main_menu.hpp"
+#include "core/menu_manager.hpp"
+
+menu::MenuManager::MenuManager()
+{
+	std::cout << "\nMenu Manager Constructor() called\n";
+}
+
+menu::MenuManager::~MenuManager()
+{
+	std::cout << "Menu Manager ~Destructor() called\n";
+}
 
 void menu::MenuManager::init()
 {
@@ -7,7 +16,6 @@ void menu::MenuManager::init()
 	// TODO: call the main menu init() function
 
 	current_menu = std::make_unique<menu::MainMenu>();
-
 }
 
 void menu::MenuManager::update()

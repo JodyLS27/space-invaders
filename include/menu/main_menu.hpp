@@ -1,10 +1,12 @@
 #pragma once
 
-#include <interface/i_menu_base.hpp>
+#include <iostream>
+
+#include "menu/i_menu.hpp"
 
 namespace menu
 {
-	class MainMenu : public menu::MenuBase
+	class MainMenu : public menu::Menu
 	{
 	public:
 		MainMenu();

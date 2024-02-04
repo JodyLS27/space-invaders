@@ -2,7 +2,7 @@
 
 namespace menu
 {
-	class MenuBase
+	class Menu
 	{
 	public:
 		virtual void init() = 0;

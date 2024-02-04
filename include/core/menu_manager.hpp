@@ -1,13 +1,18 @@
 #pragma once
 
 #include <memory>
-#include <interface/i_menu_base.hpp>
+#include <iostream>
+
+#include "menu/main_menu.hpp"
 
 namespace menu
 {
 	class MenuManager
 	{
 	public:
+		MenuManager();
+		~MenuManager();
+
 		// Called when the game first starts
 		void init();
 		void update();
@@ -15,6 +20,6 @@ namespace menu
 
 	protected:
 		// Pointer for the current menu loaded
-		std::unique_ptr<menu::MenuBase> current_menu;
+		std::unique_ptr<menu::Menu> current_menu;
 	};
 }

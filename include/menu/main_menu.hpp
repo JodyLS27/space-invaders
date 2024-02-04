@@ -6,6 +6,10 @@ namespace menu
 {
 	class MainMenu : public menu::MenuBase
 	{
+	public:
+		MainMenu();
+		~MainMenu();
+
 		void init() override;
 		void update() override;
 		void draw() override;

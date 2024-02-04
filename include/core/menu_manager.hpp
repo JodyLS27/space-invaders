@@ -14,7 +14,7 @@ namespace menu
 
 
 	protected:
-		// Store the current Active menu
-		std::unique_ptr<menu::MenuBase> current_menu = std::make_unique<menu::MenuBase>();
+		// Pointer for the current menu loaded
+		std::unique_ptr<menu::MenuBase> current_menu;
 	};
 }

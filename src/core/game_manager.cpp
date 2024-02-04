@@ -1,12 +1,6 @@
-#include "gameManager.hpp"
+#include "core/game_manager.hpp"
 
-void gameManager::run()
-{
-	init();
-	update();
-}
-
-void gameManager::init()
+void game_manager::init()
 {
 	// Setup the player controller ptr
 	// Initialize Textures and load them. (Might leave this to each category to do)
@@ -16,13 +10,7 @@ void gameManager::init()
 	// Call Update function to get the main game loop moving. This is our frame data.
 }
 
-void gameManager::createController()
-{
-	// Check if a controller or Keybord is connected
-	// Then return the Correct object for that controller in a pointer.
-}
-
-void gameManager::update()
+void game_manager::update()
 {
 	// Create main game loop structure.
 }

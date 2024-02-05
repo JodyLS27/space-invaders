@@ -21,6 +21,12 @@ void menu::MainMenu::update()
 {
 	// TODO: Check if the user is Moving up or down in the menu
 	std::cout << "Main menu update() called\n";
+
+	if (current_option != next_option)
+	{
+		menu_manager.switch_menu()
+	}
+
 }
 
 void menu::MainMenu::draw()

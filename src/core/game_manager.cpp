@@ -15,22 +15,24 @@ void game_manager::init()
 void game_manager::update(menu::MenuManager& menu_manager)
 {
 	menu_manager.init();
-	// Create main game loop structure.
-	int next_option{};
-	int current_option{};
+
+	// TODO: Replace temp code with proper game loop
+	// --- Temp Start ---
+	int16_t option{};
+
 	while (true)
 	{
-		std::cout << "choose a menu item: \n";
-		std::cout << "1. main menu: \n";
-		std::cout << "2. settings: \n";
 
-		std::cin >> next_option;
-		
-		// TODO: Check to see if the switching works and if the 
-		// pointers are being destroyed when changing.
-		if (current_option != next_option)
-		{ }
+		std::cout << "choose a menu item\n";
+		std::cout << "1. Main Menu\n";
+		std::cout << "2. Sttings\n";
+		std::cout << "3. Exit\n";
+
+		std::cin >> option;
+
+		menu_manager.set_next_option(option);
 
 		menu_manager.update();
 	}
+	// --- Temp End ---
 }

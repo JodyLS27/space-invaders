@@ -7,7 +7,7 @@ menu::MenuManager::MenuManager()
 
 menu::MenuManager::~MenuManager()
 {
-	std::cout << "Menu Manager ~Destructor() called\n";
+	std::cout << "\nMenu Manager ~Destructor() called\n";
 }
 
 void menu::MenuManager::init()

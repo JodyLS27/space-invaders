@@ -10,7 +10,7 @@ namespace menu
 	{
 	public:
 		MainMenu();
-		~MainMenu();
+		~MainMenu() override;
 
 		void init() override;
 		void update() override;

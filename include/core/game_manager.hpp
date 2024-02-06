@@ -6,5 +6,5 @@ namespace game_manager
 	// Attributes
 
 	void init();
-	void update(menu::MenuManager& menu_manager);		
+	void update(menu::MenuManager& menu_manager);
 }

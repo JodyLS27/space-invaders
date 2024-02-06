@@ -25,3 +25,15 @@ void menu::MenuManager::update()
 	// TODO: Run the update of the current state.
 	current_menu->update();
 }
+
+void menu::MenuManager::set_next_option(int16_t next_option)
+{
+	m_next_option = next_option;
+}
+
+// TODO: Implement the Menu swithcin
+void menu::MenuManager::switch_menu(menu::Menu& menu)
+{
+	current_menu = std::make_unique<menu>();
+	current_menu->init();
+}

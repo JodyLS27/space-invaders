@@ -15,5 +15,8 @@ namespace menu
 		void init() override;
 		void update() override;
 		void draw() override;
+
+	private:
+		int16_t current_option{};
 	};
 }

@@ -2,30 +2,35 @@
 
 menu::MainMenu::MainMenu()
 {
-	std::cout << "\n\tMain menu Constructor() called\n";
+	std::cout << "\nMain menu Constructor() called\n";
 }
 
 menu::MainMenu::~MainMenu()
 {
-	// TODO: Look into why the ~Destructor is not firing.
-	std::cout << "\n\tMain menu ~Destructor() called\n";
+	std::cout << "Main menu ~Destructor() called\n";
 }
 
 void menu::MainMenu::init()
 {
 	// TODO: Test when this will Fire
 	// TODO: Initialize the window and menu systems
-	std::cout << "\tMain menu init() called\n";
+	std::cout << "Main menu init() called\n";
 }
 
 void menu::MainMenu::update()
 {
 	// TODO: Check if the user is Moving up or down in the menu
-	std::cout << "\tMain menu update() called\n";
+	std::cout << "Main menu update() called\n";
+
+	if (current_option != next_option)
+	{
+		menu_manager.switch_menu()
+	}
+
 }
 
 void menu::MainMenu::draw()
 {
 	// TODO: Draw the textures as needed.
-	std::cout << "\tMain menu draw() called\n";
+	std::cout << "Main menu draw() called\n";
 }

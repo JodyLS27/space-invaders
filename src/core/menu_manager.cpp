@@ -23,7 +23,12 @@ void menu::MenuManager::init()
 void menu::MenuManager::update()
 {
 	// TODO: Run the update of the current state.
-	current_menu->update();
+	current_menu->update(this);
+}
+
+void menu::MenuManager::set_current_option(int16_t current_option)
+{
+	m_current_option = current_option;
 }
 
 void menu::MenuManager::set_next_option(int16_t next_option)
@@ -31,9 +36,19 @@ void menu::MenuManager::set_next_option(int16_t next_option)
 	m_next_option = next_option;
 }
 
-// TODO: Implement the Menu swithcin
-void menu::MenuManager::switch_menu(menu::Menu& menu)
+int16_t menu::MenuManager::get_current_option()
 {
-	current_menu = std::make_unique<menu>();
+	return m_current_option;
+}
+
+int16_t menu::MenuManager::get_next_option()
+{
+	return m_next_option;
+}
+
+// TODO: Implement the Menu swithcin
+void menu::MenuManager::switch_menu(menu::Menu* menu_ptr)
+{
+	current_menu.reset(menu_ptr);
 	current_menu->init();
 }

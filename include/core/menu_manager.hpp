@@ -17,8 +17,13 @@ namespace menu
 		void init();
 		void update();
 
+		void set_current_option(int16_t current_option);
 		void set_next_option(int16_t next_option);
-		void switch_menu(menu::Menu& menu);
+
+		int16_t get_current_option();
+		int16_t get_next_option();
+
+		void switch_menu(menu::Menu* menu);
 
 	protected:
 		// Pointer for the current menu loaded
@@ -27,5 +32,6 @@ namespace menu
 	private:
 		// TODO: Remove Temp code
 		int16_t m_next_option{};
+		int16_t m_current_option{};
 	};
 }

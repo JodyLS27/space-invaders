@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#include "core/menu_manager.hpp"
 #include "menu/i_menu.hpp"
 
 namespace menu
@@ -13,10 +14,7 @@ namespace menu
 		~MainMenu() override;
 
 		void init() override;
-		void update() override;
+		void update(menu::MenuManager& menu_manager) override;
 		void draw() override;
-
-	private:
-		int16_t current_option{};
 	};
 }

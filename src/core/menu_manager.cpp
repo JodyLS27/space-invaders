@@ -47,8 +47,8 @@ int16_t menu::MenuManager::get_next_option()
 }
 
 // TODO: Implement the Menu swithcin
-void menu::MenuManager::switch_menu(menu::Menu* menu_ptr)
+void menu::MenuManager::switch_menu(std::unique_ptr<menu::Menu> new_menu)
 {
-	current_menu.reset(menu_ptr);
+	current_menu = std::move(new_menu);
 	current_menu->init();
 }

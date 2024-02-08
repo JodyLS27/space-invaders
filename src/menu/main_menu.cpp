@@ -25,7 +25,7 @@ void menu::MainMenu::update(menu::MenuManager* menu_manager)
 	if (menu_manager->get_current_option() != menu_manager->get_next_option())
 	{
 		if (menu_manager->get_next_option() == 2)
-			menu_manager->switch_menu(menu::SettingsMenu);
+			menu_manager->switch_menu(std::make_unique<menu::SettingsMenu>());
 	}
 }
 

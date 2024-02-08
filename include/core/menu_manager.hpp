@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <utility>
 #include <iostream>
 
 #include "menu/main_menu.hpp"
@@ -23,7 +24,7 @@ namespace menu
 		int16_t get_current_option();
 		int16_t get_next_option();
 
-		void switch_menu(menu::Menu* menu);
+		void switch_menu(std::unique_ptr<menu::Menu> new_menu);
 
 	protected:
 		// Pointer for the current menu loaded

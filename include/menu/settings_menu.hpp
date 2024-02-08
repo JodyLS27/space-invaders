@@ -4,15 +4,15 @@
 
 #include "core/menu_manager.hpp"
 #include "menu/i_menu.hpp"
-#include "menu/settings_menu.hpp"
+#include "menu/main_menu.hpp"
 
 namespace menu
 {
-	class MainMenu : public menu::Menu
+	class SettingsMenu : public menu::Menu
 	{
 	public:
-		MainMenu();
-		~MainMenu() override;
+		SettingsMenu();
+		~SettingsMenu() override;
 
 		void init() override;
 		void update(menu::MenuManager* menu_manager) override;

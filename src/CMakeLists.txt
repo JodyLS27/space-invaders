@@ -4,4 +4,4 @@ target_sources(${PROJECT_NAME} PRIVATE
 	"core/game_manager.cpp"
 	"core/menu_manager.cpp"
 	"menu/main_menu.cpp"
-)
+ "menu/settings_menu.cpp")

@@ -15,7 +15,7 @@ namespace menu
 		~SettingsMenu() override;
 
 		void init() override;
-		void update(menu::MenuManager* menu_manager) override;
+		void update(menu::MenuManager& menu_manager) override;
 		void draw() override;
 	};
 }

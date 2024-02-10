@@ -23,7 +23,7 @@ void menu::MenuManager::init()
 void menu::MenuManager::update()
 {
 	// TODO: Run the update of the current state.
-	current_menu->update(this);
+	current_menu->update(*this);
 }
 
 void menu::MenuManager::set_current_option(int16_t current_option)

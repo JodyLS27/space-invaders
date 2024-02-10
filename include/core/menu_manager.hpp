@@ -8,6 +8,9 @@
 
 namespace menu
 {
+	// forward declare
+	class Menu;
+
 	class MenuManager
 	{
 	public:
@@ -24,11 +27,11 @@ namespace menu
 		int16_t get_current_option();
 		int16_t get_next_option();
 
-		void switch_menu(std::unique_ptr<menu::Menu> new_menu);
+		void switch_menu(std::unique_ptr<Menu> new_menu);
 
 	protected:
 		// Pointer for the current menu loaded
-		std::unique_ptr<menu::Menu> current_menu;
+		std::unique_ptr<Menu> current_menu;
 
 	private:
 		// TODO: Remove Temp code

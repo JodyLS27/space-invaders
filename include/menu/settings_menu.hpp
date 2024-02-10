@@ -12,10 +12,10 @@ namespace menu
 	{
 	public:
 		SettingsMenu();
-		~SettingsMenu() override;
+		~SettingsMenu();
 
 		void init() override;
-		void update(menu::MenuManager& menu_manager) override;
+		void update(MenuManager& menu_manager) override;
 		void draw() override;
 	};
 }

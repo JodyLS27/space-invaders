@@ -12,10 +12,10 @@ menu::MenuManager::~MenuManager()
 
 void menu::MenuManager::init()
 {
-	// TODO: Set the current state to be main_menu on first load
-	// TODO: call the main menu init() function
+	// Set the current option to 1
+	m_current_option = 1;
 
-	// store the main menu object
+	// store the main menu object and call init function
 	current_menu = std::make_unique<menu::MainMenu>();
 	current_menu->init();
 }

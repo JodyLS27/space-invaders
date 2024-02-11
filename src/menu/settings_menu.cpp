@@ -2,26 +2,27 @@
 
 menu::SettingsMenu::SettingsMenu()
 {
-	std::cout << "\nMain menu Constructor() called\n";
+	std::cout << "\nSettings menu Constructor() called\n";
 }
 
 menu::SettingsMenu::~SettingsMenu()
 {
-	std::cout << "Main menu ~Destructor() called\n";
+	std::cout << "Settings menu ~Destructor() called\n";
 }
 
 void menu::SettingsMenu::init()
 {
 	// TODO: Test when this will Fire
 	// TODO: Initialize the window and menu systems
-	std::cout << "Main menu init() called\n";
+	std::cout << "Settings init() called\n";
 }
 
 void menu::SettingsMenu::update(MenuManager& menu_manager)
 {
 	// TODO: Check if the user is Moving up or down in the menu
-	std::cout << "Main menu update() called\n";
+	std::cout << "Settings menu update() called\n";
 	std::cout << "\nSettings Menu - Current Option: " << menu_manager.get_current_option() << "\n";
+	std::cout << "Settings Menu - Next Option: " << menu_manager.get_current_option() << "\n\n";
 
 	if (menu_manager.get_current_option() != menu_manager.get_next_option())
 	{
@@ -33,5 +34,5 @@ void menu::SettingsMenu::update(MenuManager& menu_manager)
 void menu::SettingsMenu::draw()
 {
 	// TODO: Draw the textures as needed.
-	std::cout << "Main menu draw() called\n";
+	std::cout << "Settings menu draw() called\n";
 }

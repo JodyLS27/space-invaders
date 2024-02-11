@@ -22,17 +22,17 @@ void game_manager::update(menu::MenuManager& menu_manager)
 
 	while (true)
 	{
+		menu_manager.update();
 
 		std::cout << "choose a menu item\n";
 		std::cout << "1. Main Menu\n";
 		std::cout << "2. Sttings\n";
-		std::cout << "3. Exit\n";
+		std::cout << "3. Exit\n\n";
 
 		std::cin >> option;
 
 		menu_manager.set_next_option(option);
 
-		menu_manager.update();
 	}
 	// --- Temp End ---
 }

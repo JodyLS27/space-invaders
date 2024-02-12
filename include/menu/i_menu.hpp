@@ -7,7 +7,7 @@ namespace menu
 	// Forward declare
 	class MenuManager;
 
-	class Menu
+	class IMenu
 	{
 	public:
 		virtual void init() = 0;

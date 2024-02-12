@@ -8,7 +8,7 @@
 
 namespace menu
 {
-	class MainMenu : public menu::Menu
+	class MainMenu : public menu::IMenu
 	{
 	public:
 		MainMenu();

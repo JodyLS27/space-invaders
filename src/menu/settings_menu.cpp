@@ -34,5 +34,11 @@ void menu::SettingsMenu::update(MenuManager& menu_manager)
 void menu::SettingsMenu::draw()
 {
 	// TODO: Draw the textures as needed.
-	std::cout << "Settings menu draw() called\n";
+	std::cout << "Settings menu draw() called\n\n";
+
+	// Draw the menu screen
+	std::cout << "1. Dificulty: Checking...\n";
+	std::cout << "2. Screen Resolution: Console Window for now\n";
+	std::cout << "3. Graphics Settings: Nothing here yet\n";
+	std::cout << "4. Back\n\n";
 }

@@ -13,6 +13,6 @@ namespace menu
 		virtual ~ISwitchMenu() = default;
 
 		// Next menu for switching
-		virtual void switch_menu(std::make_unique<IMenu> next_menu) = 0;
+		virtual void switch_menu(std::unique_ptr<IMenu> next_menu) = 0;
 	};
 }

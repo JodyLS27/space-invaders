@@ -18,6 +18,12 @@ namespace menu
 		MenuManager();
 		~MenuManager();
 
+		void set_current_option(int16_t current_option);
+		void set_next_option(int16_t next_option);
+
+		int16_t get_current_option();
+		int16_t get_next_option();
+
 		// Called when the game first starts
 		void init();
 		void update();
@@ -32,6 +38,8 @@ namespace menu
 		std::unique_ptr<IMenu> current_menu;
 
 	private:
+		int16_t m_current_option{};
+		int16_t m_next_option{};
 
 	};
 }

@@ -25,7 +25,7 @@ void game_manager::update(menu::MenuManager& menu_manager)
 		menu_manager.update();
 
 		std::cout << "choose a menu item\n";
-		std::cout << "1. Main Menu\n";
+		std::cout << "1. Play Game\n";
 		std::cout << "2. Sttings\n";
 		std::cout << "3. Exit\n\n";
 

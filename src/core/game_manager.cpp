@@ -22,12 +22,9 @@ void game_manager::update(menu::MenuManager& menu_manager)
 
 	while (true)
 	{
+		// Call current state Updat and draw.
 		menu_manager.update();
-
-		std::cout << "choose a menu item\n";
-		std::cout << "1. Play Game\n";
-		std::cout << "2. Sttings\n";
-		std::cout << "3. Exit\n\n";
+		menu_manager.draw();
 
 		std::cin >> option;
 

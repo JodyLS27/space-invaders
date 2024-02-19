@@ -46,9 +46,14 @@ void menu::MenuManager::update()
 }
 
 
-// TODO: Implement the Menu swithcin
+void menu::MenuManager::draw()
+{
+	current_menu->draw();
+}
+
+
 void menu::MenuManager::switch_menu(std::unique_ptr<menu::IMenu> new_menu)
-{	
+{
 	current_menu = std::move(new_menu);
 	current_menu->init();
 }

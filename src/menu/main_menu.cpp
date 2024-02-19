@@ -21,8 +21,8 @@ void menu::MainMenu::update(MenuManager& menu_manager)
 {
 	// TODO: Check if the user is Moving up or down in the menu
 	std::cout << "Main menu update() called\n";
-	std::cout << "\nMain Menu - Current Option: " << menu_manager.get_current_option() << "\n\n";
-	std::cout << "Main Menu - Next Option: " << menu_manager.get_next_option() << "\n";
+	//std::cout << "\nMain Menu - Current Option: " << menu_manager.get_current_option() << "\n\n";
+	//std::cout << "Main Menu - Next Option: " << menu_manager.get_next_option() << "\n";
 
 	if (menu_manager.get_current_option() != menu_manager.get_next_option())
 	{
@@ -33,6 +33,11 @@ void menu::MainMenu::update(MenuManager& menu_manager)
 
 void menu::MainMenu::draw()
 {
-	// TODO: Draw the textures as needed.
 	std::cout << "Main menu draw() called\n";
+
+	// Draw the menu screen
+	std::cout << "choose a menu item\n";
+	std::cout << "1. Play Game\n";
+	std::cout << "2. Sttings\n";
+	std::cout << "3. Exit\n\n";
 }

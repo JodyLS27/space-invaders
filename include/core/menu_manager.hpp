@@ -24,9 +24,10 @@ namespace menu
 		int16_t get_current_option();
 		int16_t get_next_option();
 
-		// Called when the game first starts
+		// Primary functions of the Menu manager for the current state
 		void init();
 		void update();
+		void draw();
 
 		void switch_menu(std::unique_ptr<IMenu> new_menu);
 

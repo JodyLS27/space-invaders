@@ -12,7 +12,6 @@ menu::SettingsMenu::~SettingsMenu()
 
 void menu::SettingsMenu::init()
 {
-	// TODO: Test when this will Fire
 	// TODO: Initialize the window and menu systems
 	std::cout << "Settings init() called\n";
 }
@@ -20,9 +19,6 @@ void menu::SettingsMenu::init()
 void menu::SettingsMenu::update(MenuManager& menu_manager)
 {
 	// TODO: Check if the user is Moving up or down in the menu
-	std::cout << "Settings menu update() called\n";
-	std::cout << "\nSettings Menu - Current Option: " << menu_manager.get_current_option() << "\n";
-	std::cout << "Settings Menu - Next Option: " << menu_manager.get_current_option() << "\n\n";
 
 	if (menu_manager.get_current_option() != menu_manager.get_next_option())
 	{

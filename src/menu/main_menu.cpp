@@ -20,9 +20,6 @@ void menu::MainMenu::init()
 void menu::MainMenu::update(MenuManager& menu_manager)
 {
 	// TODO: Check if the user is Moving up or down in the menu
-	std::cout << "Main menu update() called\n";
-	//std::cout << "\nMain Menu - Current Option: " << menu_manager.get_current_option() << "\n\n";
-	//std::cout << "Main Menu - Next Option: " << menu_manager.get_next_option() << "\n";
 
 	if (menu_manager.get_current_option() != menu_manager.get_next_option())
 	{

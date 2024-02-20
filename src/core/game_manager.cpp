@@ -16,20 +16,16 @@ void game_manager::update(menu::MenuManager& menu_manager)
 {
 	menu_manager.init();
 
-	// TODO: Replace temp code with proper game loop
-	// --- Temp Start ---
 	int16_t option{};
 
 	while (true)
 	{
-		// Call current state Updat and draw.
+		// Call current state Update and draw.
 		menu_manager.update();
 		menu_manager.draw();
 
 		std::cin >> option;
 
 		menu_manager.set_next_option(option);
-
 	}
-	// --- Temp End ---
 }

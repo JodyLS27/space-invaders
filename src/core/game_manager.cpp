@@ -8,14 +8,13 @@ void game_manager::init()
 	// Call Update function to get the main game loop moving.
 
 	menu::MenuManager menu_manager;
+	menu_manager.init();
 
 	update(menu_manager);
 }
 
 void game_manager::update(menu::MenuManager& menu_manager)
 {
-	menu_manager.init();
-
 	int16_t option{};
 
 	while (true)

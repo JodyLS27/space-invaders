@@ -20,12 +20,12 @@ void menu::MenuManager::set_next_option(int16_t next_option)
 	m_next_option = next_option;
 }
 
-int16_t menu::MenuManager::get_current_option()
+const int16_t menu::MenuManager::get_current_option()
 {
 	return m_current_option;
 }
 
-int16_t menu::MenuManager::get_next_option()
+const int16_t menu::MenuManager::get_next_option()
 {
 	return m_next_option;
 }

@@ -16,7 +16,7 @@ void menu::SettingsMenu::init()
 	std::cout << "Settings init() called\n";
 }
 
-void menu::SettingsMenu::update(MenuManager& menu_manager)
+void menu::SettingsMenu::update()
 {
 	// TODO: Check if the user is Moving up or down in the menu
 

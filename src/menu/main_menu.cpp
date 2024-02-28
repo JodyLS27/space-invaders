@@ -17,7 +17,7 @@ void menu::MainMenu::init()
 	std::cout << "Main menu init() called\n";
 }
 
-void menu::MainMenu::update(MenuManager& menu_manager)
+void menu::MainMenu::update()
 {
 	// TODO: Check if the user is Moving up or down in the menu
 

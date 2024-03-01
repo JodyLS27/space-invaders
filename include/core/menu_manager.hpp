@@ -22,7 +22,7 @@ namespace menu
 		const int16_t get_next_option();
 
 		// Primary functions of the Menu manager for the current state
-		void init();
+		void init(); // TODO: Call the current state set_context() Function to pass in this context ref.
 		void update();
 		void draw();
 

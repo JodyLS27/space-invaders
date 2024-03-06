@@ -2,21 +2,24 @@
 
 void game_manager::init()
 {
-	// TODO: Test the main_menu structure
-	//		- Load the Init() on the MenuManager class (Game starts here)
 	// TODO: Setup the player controller ptr	//	
 	// Call Update function to get the main game loop moving.
-
+	
+	// Load up the main menu
 	menu::MenuManager menu_manager;
 	menu_manager.init();
 
+	// TODO: Rename this function to be more meaningful
+	// Run the main game loop
 	update(menu_manager);
 }
 
 void game_manager::update(menu::MenuManager& menu_manager)
 {
+	// Test Value for now. Will switch this out to the Manager Later.
 	int16_t option{};
 
+	// Main game loop start
 	while (true)
 	{
 		// Call current state Update and draw.

@@ -4,12 +4,12 @@
 #include <iostream>
 
 #include "menu/i_menu.hpp"
-#include "menu/i_switch_menu.hpp"
+#include "menu/i_menu_switcher.hpp"
 #include "menu/main_menu.hpp"
 
 namespace menu
 {
-	class MenuController : public menu::ISwitchMenu
+	class MenuController : public IMenuSwitcher
 	{
 	public:
 		MenuController();

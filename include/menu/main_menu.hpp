@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "core/menu_manager.hpp"
+#include "core/menu_controller.hpp"
 #include "menu/i_menu.hpp"
 #include "menu/settings_menu.hpp"
 

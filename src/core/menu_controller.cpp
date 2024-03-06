@@ -1,56 +1,56 @@
-#include "core/menu_manager.hpp"
+#include "core/menu_controller.hpp"
 
-menu::MenuManager::MenuManager()
+menu::MenuController::MenuController()
 {
 	std::cout << "\nMenu Manager Constructor() called\n";
 }
 
-menu::MenuManager::~MenuManager()
+menu::MenuController::~MenuController()
 {
 	std::cout << "\nMenu Manager ~Destructor() called\n";
 }
 
-void menu::MenuManager::set_current_option(int16_t current_option)
+void menu::MenuController::set_current_option(int16_t current_option)
 {
 	m_current_option = current_option;
 }
 
-void menu::MenuManager::set_next_option(int16_t next_option)
+void menu::MenuController::set_next_option(int16_t next_option)
 {
 	m_next_option = next_option;
 }
 
-const int16_t menu::MenuManager::get_current_option()
+const int16_t menu::MenuController::get_current_option()
 {
 	return m_current_option;
 }
 
-const int16_t menu::MenuManager::get_next_option()
+const int16_t menu::MenuController::get_next_option()
 {
 	return m_next_option;
 }
 
-void menu::MenuManager::init()
+void menu::MenuController::init()
 {
 	// store the MainMenu object and call init function
 	current_menu = std::make_unique<menu::MainMenu>();
 	current_menu->init();
 }
 
-void menu::MenuManager::update()
+void menu::MenuController::update()
 {
 	// TODO: Check to see if m_next_menu is set, then switch to that menu
 	current_menu->update(*this);
 }
 
 
-void menu::MenuManager::draw()
+void menu::MenuController::draw()
 {
 	current_menu->draw();
 }
 
 
-void menu::MenuManager::switch_menu(std::unique_ptr<menu::IMenu> new_menu)
+void menu::MenuController::switch_menu(std::unique_ptr<menu::IMenu> new_menu)
 {
 	// TODO: Set m_next_menu here
 	current_menu = std::move(new_menu);

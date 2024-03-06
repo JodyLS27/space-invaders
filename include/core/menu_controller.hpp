@@ -9,11 +9,11 @@
 
 namespace menu
 {
-	class MenuManager : public menu::ISwitchMenu
+	class MenuController : public menu::ISwitchMenu
 	{
 	public:
-		MenuManager();
-		~MenuManager();
+		MenuController();
+		~MenuController();
 
 		/**
 		* Set the current menu option

@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-02-28T06:20:50.913Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="tzQq9wUrpnVY5VBrGtKJ" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-03-06T19:31:45.844Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="rKyxhRWF3wY5tQCaAkO2" version="23.1.5" type="device">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2261" dy="2053" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2022" dy="1906" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -96,7 +96,7 @@
             <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="9akjZ-ZjHOj2phPVTBOo-0" value="# MenuManager* menu_manager" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="mv3bfV6vPImdYQijiXR5-1">
+        <mxCell id="9akjZ-ZjHOj2phPVTBOo-0" value="# MenuManager* menu_manager" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="mv3bfV6vPImdYQijiXR5-1" vertex="1">
           <mxGeometry y="40" width="287" height="30" as="geometry" />
         </mxCell>
         <mxCell id="mv3bfV6vPImdYQijiXR5-4" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="mv3bfV6vPImdYQijiXR5-1" vertex="1">
@@ -108,7 +108,7 @@
         <mxCell id="mv3bfV6vPImdYQijiXR5-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.497;exitY=0.993;exitDx=0;exitDy=0;exitPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--5" target="mv3bfV6vPImdYQijiXR5-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="mv3bfV6vPImdYQijiXR5-9" value="&lt;&lt;interface&gt;&gt;&#xa;MenuSwitcher" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="mv3bfV6vPImdYQijiXR5-9" value="&lt;&lt;interface&gt;&gt;&#xa;IMenuSwitcher" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="60" y="-120" width="330" height="152" as="geometry">
             <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
@@ -146,6 +146,12 @@
         </mxCell>
         <mxCell id="2Sw6i_y1myAYieGqctv8-5" value="+ init(): void&#xa;+ update(): void&#xa;+ draw(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2Sw6i_y1myAYieGqctv8-3" vertex="1">
           <mxGeometry y="34" width="280" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="es9AQR_es3dPfNlt6o7U-2" value="This Interface is needed so that the sub menu classes dont have direct access to the `MenuManager` class and only access the MenuSwithcing through the Interface" style="shape=note;strokeWidth=2;fontSize=14;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#666600;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-200" y="-138" width="200" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="es9AQR_es3dPfNlt6o7U-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="mv3bfV6vPImdYQijiXR5-11" target="es9AQR_es3dPfNlt6o7U-2">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

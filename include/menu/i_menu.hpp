@@ -1,6 +1,6 @@
 #pragma once
 
-#include <core/menu_manager.hpp>
+#include <core/menu_controller.hpp>
 
 namespace menu
 {

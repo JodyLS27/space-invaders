@@ -1,5 +1,5 @@
 #pragma once
-#include "core/menu_manager.hpp"
+#include "core/menu_controller.hpp"
 
 namespace game_manager
 {
@@ -18,5 +18,5 @@ namespace game_manager
 	*
 	* @param menu_manager: Object to manage the menus in the game
 	**/
-	void update(menu::MenuManager& menu_manager);
+	void update(menu::MenuController& menu_manager);
 }

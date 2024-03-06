@@ -72,19 +72,26 @@ namespace menu
 		**/
 		void draw();
 
-		void switch_menu(std::unique_ptr<IMenu> new_menu);
+		/**
+		* Used to change menus of type IMenu
+		*
+		* This function is used to switch to a new menu of type IMenu.
+		* @note It is inherited from i_menu_switcher
+		*
+		* @param new_menu: is a unique_ptr of type IMenu
+		**/
+		void switch_menu(std::unique_ptr<IMenu> new_menu) final;
 
 		// Pointer for the next menu to load
-		std::unique_ptr<IMenu> next_menu;
+		std::unique_ptr<IMenu> m_next_menu;
 
 	protected:
 		/**
 		* The current menu in use
 		*
-		* This is a unique pointer that holds one menu object at a time
-		*
+		* This is a unique pointer that holds one menu object at a time.		*
 		**/
-		std::unique_ptr<IMenu> current_menu;
+		std::unique_ptr<IMenu> m_current_menu;
 
 	private:
 		int16_t m_current_option{};

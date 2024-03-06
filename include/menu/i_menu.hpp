@@ -7,6 +7,8 @@ namespace menu
 	class IMenu
 	{
 	public:
+		// TODO: Check to see how this can be used in a sub class
+		virtual IMenu(IMenuSwitcher& menu_switcher);
 		virtual ~IMenu() = default;
 
 		virtual void init() = 0;

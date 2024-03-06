@@ -32,27 +32,27 @@ const int16_t menu::MenuController::get_next_option()
 
 void menu::MenuController::init()
 {
-	// store the MainMenu object and call init function
-	current_menu = std::make_unique<menu::MainMenu>();
-	current_menu->init();
+	// Set the current menu to be `MainMenu`
+	m_current_menu = std::make_unique<menu::MainMenu>();
+	m_current_menu->init();
 }
 
 void menu::MenuController::update()
 {
 	// TODO: Check to see if m_next_menu is set, then switch to that menu
-	current_menu->update(*this);
+	m_current_menu->update();
 }
 
 
 void menu::MenuController::draw()
 {
-	current_menu->draw();
+	m_current_menu->draw();
 }
 
 
 void menu::MenuController::switch_menu(std::unique_ptr<menu::IMenu> new_menu)
 {
 	// TODO: Set m_next_menu here
-	current_menu = std::move(new_menu);
-	current_menu->init();
+	m_current_menu = std::move(new_menu);
+	m_current_menu->init();
 }

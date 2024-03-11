@@ -1,8 +1,8 @@
-#include <core/gameManager.hpp>
+#include "core/game_manager.hpp"
 
 int main()
 {
-	gameManager::run();
+	game_manager::init();
 
 	return 0;
 }

@@ -2,19 +2,19 @@
 
 void game_manager::init()
 {
-	// TODO: Setup the player controller ptr	//	
-	// Call Update function to get the main game loop moving.
-	
-	// Load up the main menu
-	menu::MenuController menu_manager;
-	menu_manager.init();
+	// TODO: Setup the player controller ptr
+
+	// Initialize classes
+	menu::MenuController menu_controller;
+
+	menu_controller.init();
 
 	// TODO: Rename this function to be more meaningful
 	// Run the main game loop
-	update(menu_manager);
+	run(menu_controller);
 }
 
-void game_manager::update(menu::MenuController& menu_manager)
+void game_manager::run(menu::MenuController& menu_controller)
 {
 	// Test Value for now. Will switch this out to the Manager Later.
 	int16_t option{};
@@ -23,11 +23,11 @@ void game_manager::update(menu::MenuController& menu_manager)
 	while (true)
 	{
 		// Call current state Update and draw.
-		menu_manager.update();
-		menu_manager.draw();
+		menu_controller.update();
+		menu_controller.draw();
 
 		std::cin >> option;
 
-		menu_manager.set_next_option(option);
+		menu_controller.set_next_option(option);
 	}
 }

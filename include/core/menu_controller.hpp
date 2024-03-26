@@ -73,10 +73,10 @@ namespace menu
 		void draw();
 
 		/**
-		* Used to change menus of type IMenu
+		* Used to change menus of type IMenu.
 		*
 		* This function is used to switch to a new menu of type IMenu.
-		* @note It is inherited from i_menu_switcher
+		* @note: It is inherited from i_menu_switcher
 		*
 		* @param new_menu: is a unique_ptr of type IMenu
 		**/

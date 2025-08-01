@@ -18,5 +18,13 @@ namespace game_manager
 	*
 	* @param menu_manager: Object to manage the menus in the game
 	**/
-	void update(menu::MenuController& menu_manager);
+	void start(menu::MenuController& menu_manager);
+
+	/**
+	* Primary game exit function
+	* 
+	* This function is used to exit the game when the main loop is exited and clear any memory before 
+	* closing the game.
+	**/
+	void exit();
 }

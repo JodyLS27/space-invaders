@@ -2,19 +2,20 @@
 
 void game_manager::init()
 {
+	// TODO: Finalize the Menu Controller
 	// TODO: Setup the player controller ptr
+	// TODO: 
 
 	// Initialize classes
 	menu::MenuController menu_controller;
 
 	menu_controller.init();
 
-	// TODO: Rename this function to be more meaningful
 	// Run the main game loop
-	run(menu_controller);
+	start(menu_controller);
 }
 
-void game_manager::run(menu::MenuController& menu_controller)
+void game_manager::start(menu::MenuController& menu_controller)
 {
 	// Test Value for now. Will switch this out to the Manager Later.
 	int16_t option{};
@@ -31,3 +32,5 @@ void game_manager::run(menu::MenuController& menu_controller)
 		menu_controller.set_next_option(option);
 	}
 }
+
+void game_manager::

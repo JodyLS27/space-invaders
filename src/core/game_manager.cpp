@@ -32,5 +32,3 @@ void game_manager::start(menu::MenuController& menu_controller)
 		menu_controller.set_next_option(option);
 	}
 }
-
-void game_manager::

@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(${PROJECT_NAME})
 
-include(cmake/FetchSFML.cmake) # Additional CMake scripts
+# include(cmake/FetchSFML.cmake) # Additional CMake scripts
 add_subdirectory(src)
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)

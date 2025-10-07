@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
-Project(SpaceInvaders VERSION 0.0.1)
+Project(SpaceInvaders VERSION 0.1.0)
 
 # Set C++ Standard
 set(CMAKE_CXX_STANDARD 20)
